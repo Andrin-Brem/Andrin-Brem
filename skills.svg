@@ -1,185 +1,201 @@
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="780" viewBox="0 0 1100 780">
-<defs>
-  <style>
-    text { font-family: monospace; }
-    .bgbar { fill: #382B49; }
-    .on {
-      fill: #61F5C8;
-      animation: appear .2s steps(1) both;
-    }
-    .d1 { animation-delay:.2s }
-    .d2 { animation-delay:.3s }
-    .d3 { animation-delay:.4s }
-    .d4 { animation-delay:.5s }
-    .d5 { animation-delay:.6s }
-    .d6 { animation-delay:.7s }
-    .d7 { animation-delay:.8s }
-    .d8 { animation-delay:.9s }
-    .d9 { animation-delay:1s }
-    .d10 { animation-delay:1.1s }
-    .blink { animation: blink 1s steps(2) infinite; }
-    .glow { animation: glow 2s ease-in-out infinite alternate; }
-    @keyframes appear {
-      from { opacity:0; }
-      to { opacity:1; }
-    }
-    @keyframes blink {
-      50% { opacity:0; }
-    }
-    @keyframes glow {
-      from { opacity:.75; }
-      to { opacity:1; }
-    }
-  </style>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="540" viewBox="0 0 900 540">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#100d20"/>
+      <stop offset="1" stop-color="#251638"/>
+    </linearGradient>
 
-<rect width="1100" height="780" fill="#171222"/>
-<rect x="5" y="5" width="1090" height="770" fill="none" stroke="#59416D" stroke-width="3"/>
+    <style>
+      text { font-family: monospace; letter-spacing: 2px; }
+      .title { fill:#ffd166; font-size:30px; font-weight:bold; }
+      .sub { fill:#5eead4; font-size:13px; }
+      .label { fill:#f5e9ff; font-size:16px; }
+      .pct { fill:#ffd166; font-size:14px; text-anchor:end; }
 
-<text x="30" y="40" fill="#E9B9F5" font-size="20">◆ ANDRIN.EXE</text>
-<text x="1070" y="40" fill="#61F5C8" font-size="17" text-anchor="end">[ SYSTEM ACTIVE ]</text>
+      .track { fill:#171226; stroke:#493b65; stroke-width:1; }
+      .seg { fill:#211a35; stroke:#493b65; stroke-width:1; }
+      .fill {
+        fill:#5eead4;
+        opacity:0;
+        animation:load .12s steps(1) forwards;
+      }
 
-<text x="550" y="115" fill="#FFD76A" font-size="56" font-weight="bold" text-anchor="middle" class="glow">SKILL ARCADE</text>
-<text x="550" y="160" fill="#BBA8D2" font-size="19" text-anchor="middle">PLAYER 01 — ANDRIN BREM</text>
+      @keyframes load { to { opacity:1; } }
 
-<path d="M30 195 H1070" stroke="#8754A8" stroke-width="2"/>
-<text x="30" y="245" fill="#61F5C8" font-size="19">[ TECH SKILL DATABASE ]</text>
+      .html .fill:nth-child(1) { animation-delay:2s; }
+      .html .fill:nth-child(2) { animation-delay:2.08s; }
+      .html .fill:nth-child(3) { animation-delay:2.16s; }
+      .html .fill:nth-child(4) { animation-delay:2.24s; }
+      .html .fill:nth-child(5) { animation-delay:2.32s; }
+      .html .fill:nth-child(6) { animation-delay:2.40s; }
+      .html .fill:nth-child(7) { animation-delay:2.48s; }
+      .html .fill:nth-child(8) { animation-delay:2.56s; }
+      .html .fill:nth-child(9) { animation-delay:2.64s; }
 
-<g fill="#FFD76A" font-size="20" font-weight="bold">
-  <text x="30" y="295">HTML</text>
-  <text x="30" y="375">CSS</text>
-  <text x="30" y="455">JAVASCRIPT</text>
-  <text x="30" y="535">VUE.JS</text>
-  <text x="30" y="615">GIT</text>
-</g>
+      .css .fill:nth-child(1) { animation-delay:3.1s; }
+      .css .fill:nth-child(2) { animation-delay:3.18s; }
+      .css .fill:nth-child(3) { animation-delay:3.26s; }
+      .css .fill:nth-child(4) { animation-delay:3.34s; }
+      .css .fill:nth-child(5) { animation-delay:3.42s; }
+      .css .fill:nth-child(6) { animation-delay:3.50s; }
+      .css .fill:nth-child(7) { animation-delay:3.58s; }
+      .css .fill:nth-child(8) { animation-delay:3.66s; }
 
-<g fill="#61F5C8" font-size="19" text-anchor="end">
-  <text x="1070" y="295">85/100</text>
-  <text x="1070" y="375">75/100</text>
-  <text x="1070" y="455">65/100</text>
-  <text x="1070" y="535">50/100</text>
-  <text x="1070" y="615">70/100</text>
-</g>
+      .js .fill:nth-child(1) { animation-delay:4.1s; }
+      .js .fill:nth-child(2) { animation-delay:4.18s; }
+      .js .fill:nth-child(3) { animation-delay:4.26s; }
+      .js .fill:nth-child(4) { animation-delay:4.34s; }
+      .js .fill:nth-child(5) { animation-delay:4.42s; }
+      .js .fill:nth-child(6) { animation-delay:4.50s; }
+      .js .fill:nth-child(7) { animation-delay:4.58s; }
 
-<!-- HTML: 9/10 -->
-<g>
-  <rect class="bgbar" x="30" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="136" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="242" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="348" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="454" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="560" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="666" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="772" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="878" y="310" width="100" height="20"/>
-  <rect class="bgbar" x="984" y="310" width="86" height="20"/>
-  <g class="on">
-    <rect class="d1" x="30" y="310" width="100" height="20"/>
-    <rect class="d2" x="136" y="310" width="100" height="20"/>
-    <rect class="d3" x="242" y="310" width="100" height="20"/>
-    <rect class="d4" x="348" y="310" width="100" height="20"/>
-    <rect class="d5" x="454" y="310" width="100" height="20"/>
-    <rect class="d6" x="560" y="310" width="100" height="20"/>
-    <rect class="d7" x="666" y="310" width="100" height="20"/>
-    <rect class="d8" x="772" y="310" width="100" height="20"/>
-    <rect class="d9" x="878" y="310" width="100" height="20"/>
+      .vue .fill:nth-child(1) { animation-delay:5s; }
+      .vue .fill:nth-child(2) { animation-delay:5.08s; }
+      .vue .fill:nth-child(3) { animation-delay:5.16s; }
+      .vue .fill:nth-child(4) { animation-delay:5.24s; }
+
+      .git .fill:nth-child(1) { animation-delay:5.9s; }
+      .git .fill:nth-child(2) { animation-delay:5.98s; }
+      .git .fill:nth-child(3) { animation-delay:6.06s; }
+      .git .fill:nth-child(4) { animation-delay:6.14s; }
+      .git .fill:nth-child(5) { animation-delay:6.22s; }
+      .git .fill:nth-child(6) { animation-delay:6.30s; }
+
+      .intro {
+        animation:fade .6s ease 1.3s forwards;
+      }
+      @keyframes fade {
+        to { opacity:0; visibility:hidden; }
+      }
+    </style>
+  </defs>
+
+  <rect width="900" height="540" fill="url(#bg)"/>
+  <rect x="25" y="20" width="850" height="500" rx="8"
+        fill="#100d20" stroke="#5eead4" stroke-width="2"/>
+
+  <path d="M45 65V35H85 M815 35H855V65 M45 475V505H85 M815 505H855V475"
+        fill="none" stroke="#ffd166" stroke-width="3"/>
+
+  <text x="450" y="85" text-anchor="middle" class="title">ANDRIN BREM</text>
+  <text x="450" y="112" text-anchor="middle" class="sub">PLAYER 01 // DEVELOPER SKILLS</text>
+  <line x1="110" y1="135" x2="790" y2="135" stroke="#493b65" stroke-width="2"/>
+
+  <!-- HTML 90% -->
+  <g class="html">
+    <text x="110" y="175" class="label">HTML</text>
+    <text x="790" y="175" class="pct">90%</text>
+    <rect x="110" y="187" width="680" height="22" class="track"/>
+    <g>
+      <rect class="seg fill" x="114" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="181" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="248" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="315" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="382" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="449" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="516" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="583" y="191" width="61" height="14"/>
+      <rect class="seg fill" x="650" y="191" width="61" height="14"/>
+      <rect class="seg" x="717" y="191" width="61" height="14"/>
+    </g>
   </g>
-</g>
 
-<!-- CSS: 8/10 -->
-<g>
-  <rect class="bgbar" x="30" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="136" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="242" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="348" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="454" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="560" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="666" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="772" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="878" y="390" width="100" height="20"/>
-  <rect class="bgbar" x="984" y="390" width="86" height="20"/>
-  <g class="on">
-    <rect class="d1" x="30" y="390" width="100" height="20"/>
-    <rect class="d2" x="136" y="390" width="100" height="20"/>
-    <rect class="d3" x="242" y="390" width="100" height="20"/>
-    <rect class="d4" x="348" y="390" width="100" height="20"/>
-    <rect class="d5" x="454" y="390" width="100" height="20"/>
-    <rect class="d6" x="560" y="390" width="100" height="20"/>
-    <rect class="d7" x="666" y="390" width="100" height="20"/>
-    <rect class="d8" x="772" y="390" width="100" height="20"/>
+  <!-- CSS 80% -->
+  <g class="css">
+    <text x="110" y="245" class="label">CSS</text>
+    <text x="790" y="245" class="pct">80%</text>
+    <rect x="110" y="257" width="680" height="22" class="track"/>
+    <g>
+      <rect class="seg fill" x="114" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="181" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="248" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="315" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="382" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="449" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="516" y="261" width="61" height="14"/>
+      <rect class="seg fill" x="583" y="261" width="61" height="14"/>
+      <rect class="seg" x="650" y="261" width="61" height="14"/>
+      <rect class="seg" x="717" y="261" width="61" height="14"/>
+    </g>
   </g>
-</g>
 
-<!-- JAVASCRIPT: 7/10 -->
-<g>
-  <rect class="bgbar" x="30" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="136" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="242" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="348" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="454" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="560" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="666" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="772" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="878" y="470" width="100" height="20"/>
-  <rect class="bgbar" x="984" y="470" width="86" height="20"/>
-  <g class="on">
-    <rect class="d1" x="30" y="470" width="100" height="20"/>
-    <rect class="d2" x="136" y="470" width="100" height="20"/>
-    <rect class="d3" x="242" y="470" width="100" height="20"/>
-    <rect class="d4" x="348" y="470" width="100" height="20"/>
-    <rect class="d5" x="454" y="470" width="100" height="20"/>
-    <rect class="d6" x="560" y="470" width="100" height="20"/>
-    <rect class="d7" x="666" y="470" width="100" height="20"/>
+  <!-- JavaScript 70% -->
+  <g class="js">
+    <text x="110" y="315" class="label">JAVASCRIPT</text>
+    <text x="790" y="315" class="pct">70%</text>
+    <rect x="110" y="327" width="680" height="22" class="track"/>
+    <g>
+      <rect class="seg fill" x="114" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="181" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="248" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="315" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="382" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="449" y="331" width="61" height="14"/>
+      <rect class="seg fill" x="516" y="331" width="61" height="14"/>
+      <rect class="seg" x="583" y="331" width="61" height="14"/>
+      <rect class="seg" x="650" y="331" width="61" height="14"/>
+      <rect class="seg" x="717" y="331" width="61" height="14"/>
+    </g>
   </g>
-</g>
 
-<!-- VUE: 5/10 -->
-<g>
-  <rect class="bgbar" x="30" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="136" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="242" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="348" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="454" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="560" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="666" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="772" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="878" y="550" width="100" height="20"/>
-  <rect class="bgbar" x="984" y="550" width="86" height="20"/>
-  <g class="on">
-    <rect class="d1" x="30" y="550" width="100" height="20"/>
-    <rect class="d2" x="136" y="550" width="100" height="20"/>
-    <rect class="d3" x="242" y="550" width="100" height="20"/>
-    <rect class="d4" x="348" y="550" width="100" height="20"/>
-    <rect class="d5" x="454" y="550" width="100" height="20"/>
+  <!-- Vue 40% -->
+  <g class="vue">
+    <text x="110" y="385" class="label">VUE</text>
+    <text x="790" y="385" class="pct">40%</text>
+    <rect x="110" y="397" width="680" height="22" class="track"/>
+    <g>
+      <rect class="seg fill" x="114" y="401" width="61" height="14"/>
+      <rect class="seg fill" x="181" y="401" width="61" height="14"/>
+      <rect class="seg fill" x="248" y="401" width="61" height="14"/>
+      <rect class="seg fill" x="315" y="401" width="61" height="14"/>
+      <rect class="seg" x="382" y="401" width="61" height="14"/>
+      <rect class="seg" x="449" y="401" width="61" height="14"/>
+      <rect class="seg" x="516" y="401" width="61" height="14"/>
+      <rect class="seg" x="583" y="401" width="61" height="14"/>
+      <rect class="seg" x="650" y="401" width="61" height="14"/>
+      <rect class="seg" x="717" y="401" width="61" height="14"/>
+    </g>
   </g>
-</g>
 
-<!-- GIT: 7/10 -->
-<g>
-  <rect class="bgbar" x="30" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="136" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="242" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="348" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="454" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="560" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="666" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="772" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="878" y="630" width="100" height="20"/>
-  <rect class="bgbar" x="984" y="630" width="86" height="20"/>
-  <g class="on">
-    <rect class="d1" x="30" y="630" width="100" height="20"/>
-    <rect class="d2" x="136" y="630" width="100" height="20"/>
-    <rect class="d3" x="242" y="630" width="100" height="20"/>
-    <rect class="d4" x="348" y="630" width="100" height="20"/>
-    <rect class="d5" x="454" y="630" width="100" height="20"/>
-    <rect class="d6" x="560" y="630" width="100" height="20"/>
-    <rect class="d7" x="666" y="630" width="100" height="20"/>
+  <!-- Git 60% -->
+  <g class="git">
+    <text x="110" y="455" class="label">GIT</text>
+    <text x="790" y="455" class="pct">60%</text>
+    <rect x="110" y="467" width="680" height="22" class="track"/>
+    <g>
+      <rect class="seg fill" x="114" y="471" width="61" height="14"/>
+      <rect class="seg fill" x="181" y="471" width="61" height="14"/>
+      <rect class="seg fill" x="248" y="471" width="61" height="14"/>
+      <rect class="seg fill" x="315" y="471" width="61" height="14"/>
+      <rect class="seg fill" x="382" y="471" width="61" height="14"/>
+      <rect class="seg fill" x="449" y="471" width="61" height="14"/>
+      <rect class="seg" x="516" y="471" width="61" height="14"/>
+      <rect class="seg" x="583" y="471" width="61" height="14"/>
+      <rect class="seg" x="650" y="471" width="61" height="14"/>
+      <rect class="seg" x="717" y="471" width="61" height="14"/>
+    </g>
   </g>
-</g>
 
-<path d="M30 685 H1070" stroke="#8754A8" stroke-width="2"/>
-<text x="30" y="730" fill="#E9B9F5" font-size="18">CLASS: DEVELOPER</text>
-<text x="1070" y="730" fill="#FFD76A" font-size="18" text-anchor="end">LVL. 01</text>
-<text x="550" y="765" fill="#BBA8D2" font-size="17" text-anchor="middle">INSERT COIN <tspan class="blink">_</tspan> KEEP CODING <tspan class="blink">_</tspan> REPEAT</text>
+  <!-- Scanlines -->
+  <g opacity=".08" stroke="white" stroke-width="1">
+    <path d="M25 40H875 M25 50H875 M25 60H875 M25 70H875 M25 80H875
+    M25 90H875 M25 100H875 M25 110H875 M25 120H875 M25 130H875
+    M25 140H875 M25 150H875 M25 160H875 M25 170H875 M25 180H875
+    M25 190H875 M25 200H875 M25 210H875 M25 220H875 M25 230H875
+    M25 240H875 M25 250H875 M25 260H875 M25 270H875 M25 280H875
+    M25 290H875 M25 300H875 M25 310H875 M25 320H875 M25 330H875
+    M25 340H875 M25 350H875 M25 360H875 M25 370H875 M25 380H875
+    M25 390H875 M25 400H875 M25 410H875 M25 420H875 M25 430H875
+    M25 440H875 M25 450H875 M25 460H875 M25 470H875 M25 480H875
+    M25 490H875 M25 500H875"/>
+  </g>
+
+  <!-- Intro -->
+  <g class="intro">
+    <rect x="25" y="20" width="850" height="500" fill="#100d20"/>
+    <text x="450" y="225" text-anchor="middle" fill="#5eead4" font-size="17">INSERT COIN</text>
+    <text x="450" y="265" text-anchor="middle" fill="#ffd166" font-size="30" font-weight="bold">PLAYER 01</text>
+    <text x="450" y="300" text-anchor="middle" fill="#f5e9ff" font-size="13">LOADING SKILLS...</text>
+  </g>
 </svg>
