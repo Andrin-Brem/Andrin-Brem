@@ -1,1 +1,154 @@
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 739">
+<defs>
+  <linearGradient id="sky" x2="0" y2="1">
+    <stop stop-color="#101d32"/><stop offset="1" stop-color="#244653"/>
+  </linearGradient>
+  <linearGradient id="ground" x2="0" y2="1">
+    <stop stop-color="#507d83"/><stop offset="1" stop-color="#172e3c"/>
+  </linearGradient>
+  <linearGradient id="bar" x2="1">
+    <stop stop-color="#347b8c"/><stop offset=".5" stop-color="#83c9ce"/><stop offset="1" stop-color="#e0f5e9"/>
+  </linearGradient>
+  <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse">
+    <path d="M0 0H5V5" fill="none" stroke="#10202a" stroke-width=".7" opacity=".4"/>
+  </pattern>
+  <pattern id="segments" width="7" height="18" patternUnits="userSpaceOnUse">
+    <path d="M4 0V18" stroke="#142a35" stroke-width="2" opacity=".65"/>
+  </pattern>
+  <style>
+    @keyframes reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    .fill{transform-box:fill-box;transform-origin:left center;animation:reveal 1.4s cubic-bezier(.2,.8,.2,1) both}
+    .a{animation-delay:.2s}.b{animation-delay:.65s}.c{animation-delay:1.1s}.d{animation-delay:1.55s}.e{animation-delay:2s}
+    .label{font:13px monospace;fill:#e0f0f0}
+    .pct{font:12px monospace;fill:#a8e0e5}
+    .pixel{shape-rendering:crispEdges}
+  </style>
+</defs>
+
+<rect width="900" height="739" fill="url(#sky)"/>
+<rect x="48" y="45" width="768" height="3" fill="#82cbd0"/>
+<rect x="48" y="52" width="768" height="1" fill="#d5f1f0" opacity=".35"/>
+
+<!-- Snow stars -->
+<g fill="#e6f5f2">
+  <rect x="100" y="90" width="4" height="4"/><rect x="205" y="125" width="3" height="3"/>
+  <rect x="290" y="83" width="5" height="5"/><rect x="500" y="95" width="4" height="4"/>
+  <rect x="790" y="120" width="3" height="3"/><rect x="600" y="150" width="4" height="4"/>
+</g>
+
+<!-- Pixel ice moon -->
+<g class="pixel">
+  <rect x="650" y="90" width="90" height="12" fill="#c9edf0"/>
+  <rect x="630" y="102" width="130" height="12" fill="#c9edf0"/>
+  <rect x="618" y="114" width="154" height="50" fill="#c9edf0"/>
+  <rect x="630" y="164" width="130" height="12" fill="#8ecbd5"/>
+  <rect x="650" y="176" width="90" height="12" fill="#8ecbd5"/>
+  <rect x="670" y="125" width="15" height="15" fill="#ffffff"/>
+  <rect x="710" y="145" width="12" height="12" fill="#9ccbd6"/>
+</g>
+
+<!-- Snowflakes -->
+<g stroke="#d4f1f1" stroke-width="3" shape-rendering="crispEdges">
+  <path d="M120 180v28m-14-14h28m-24-10 20 20m0-20-20 20"/>
+  <path d="M300 210v24m-12-12h24m-20-8 16 16m0-16-16 16"/>
+  <path d="M550 150v24m-12-12h24m-20-8 16 16m0-16-16 16"/>
+  <path d="M800 230v24m-12-12h24m-20-8 16 16m0-16-16 16"/>
+</g>
+
+<!-- Distant snowy hills -->
+<path d="M0 300H100V276H180V260H260V280H340V250H430V270H520V286H610V260H700V278H800V250H900V420H0Z" fill="#31566a"/>
+<path d="M0 335H100V315H220V294H310V310H420V290H520V314H620V292H720V313H820V290H900V420H0Z" fill="#477888"/>
+<path d="M0 300H100V276H180V260H260V280H340V250H430V270H520V286H610V260H700V278H800V250H900" fill="none" stroke="#d7eff0" stroke-width="7"/>
+
+<!-- Left pine -->
+<g class="pixel">
+  <rect x="115" y="300" width="24" height="95" fill="#644c3e"/>
+  <path d="M127 130h-25v20H82v20H65v20H90v20H75v20h35v20H95v20h65v-20h-20v-20h35v-20h-20v-20h25v-20h-20v-20h-28z" fill="#20514d"/>
+  <path d="M127 130h-25v20H82v20H65v20H90v20H75v20h35v20H95v20h65v-20h-20v-20h35v-20h-20v-20h25v-20h-20v-20h-28z" fill="none" stroke="#a8dfe0" stroke-width="5"/>
+  <rect x="95" y="160" width="30" height="7" fill="#e5f4f0"/>
+  <rect x="75" y="205" width="55" height="7" fill="#e5f4f0"/>
+  <rect x="110" y="245" width="45" height="7" fill="#e5f4f0"/>
+</g>
+
+<!-- Center pine -->
+<g class="pixel">
+  <rect x="425" y="280" width="28" height="110" fill="#644c3e"/>
+  <path d="M439 105h-28v20h-22v20h-20v20h25v20h-30v20h40v20h-25v20h80v-20h-25v-20h40v-20h-30v-20h25v-20h-20v-20h-22z" fill="#1d494b"/>
+  <path d="M439 105h-28v20h-22v20h-20v20h25v20h-30v20h40v20h-25v20h80v-20h-25v-20h40v-20h-30v-20h25v-20h-20v-20h-22z" fill="none" stroke="#a8dfe0" stroke-width="5"/>
+  <rect x="400" y="145" width="40" height="7" fill="#e5f4f0"/>
+  <rect x="380" y="190" width="55" height="7" fill="#e5f4f0"/>
+  <rect x="410" y="230" width="55" height="7" fill="#e5f4f0"/>
+</g>
+
+<!-- Right pine -->
+<g class="pixel">
+  <rect x="735" y="300" width="24" height="95" fill="#644c3e"/>
+  <path d="M747 145h-25v20h-20v20h-18v20h25v20h-28v20h35v20h-20v20h65v-20h-20v-20h35v-20h-25v-20h22v-20h-20v-20h-28z" fill="#20514d"/>
+  <path d="M747 145h-25v20h-20v20h-18v20h25v20h-28v20h35v20h-20v20h65v-20h-20v-20h35v-20h-25v-20h22v-20h-20v-20h-28z" fill="none" stroke="#a8dfe0" stroke-width="5"/>
+  <rect x="715" y="175" width="40" height="7" fill="#e5f4f0"/>
+  <rect x="695" y="220" width="55" height="7" fill="#e5f4f0"/>
+  <rect x="725" y="260" width="45" height="7" fill="#e5f4f0"/>
+</g>
+
+<!-- Snowy foreground -->
+<path d="M0 370H100V355H200V370H300V345H390V365H490V350H590V368H690V342H790V360H900V739H0Z" fill="url(#ground)"/>
+<path d="M0 370H100V355H200V370H300V345H390V365H490V350H590V368H690V342H790V360H900" fill="none" stroke="#d9f1ee" stroke-width="6"/>
+
+<!-- Ice crystals and snow details -->
+<g class="pixel">
+  <path d="M230 395v35m-17-17h34m-29-12 24 24m0-24-24 24" stroke="#bce8e9" stroke-width="4" fill="none"/>
+  <path d="M650 390v30m-15-15h30m-25-10 20 20m0-20-20 20" stroke="#bce8e9" stroke-width="4" fill="none"/>
+  <rect x="300" y="430" width="20" height="8" fill="#d8f1ef"/>
+  <rect x="520" y="420" width="25" height="8" fill="#d8f1ef"/>
+  <rect x="800" y="440" width="18" height="8" fill="#d8f1ef"/>
+  <path d="M30 470h8v-20h8v20h8v-12h8v12 M330 470h8v-20h8v20h8v-12h8v12 M570 470h8v-20h8v20h8v-12h8v12 M830 470h8v-20h8v20h8v-12h8v12" fill="#b7e0df"/>
+  <rect x="160" y="420" width="14" height="7" fill="#edf8f3"/>
+  <rect x="700" y="430" width="18" height="7" fill="#edf8f3"/>
+</g>
+
+<!-- Divider -->
+<rect x="48" y="455" width="768" height="2" fill="#82cbd0"/>
+<rect x="48" y="460" width="768" height="1" fill="#d5f1f0" opacity=".4"/>
+<text x="450" y="448" text-anchor="middle" font-family="monospace" font-size="12" fill="#e0f5f0">THE STACK</text>
+
+<!-- Skill bars -->
+<g>
+  <text class="label" x="91" y="489">HTML</text>
+  <rect x="204" y="475" width="526" height="18" fill="#142a35"/>
+  <rect class="fill a" x="204" y="475" width="473.4" height="18" fill="url(#bar)"/>
+  <rect x="204" y="475" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="489">90%</text>
+
+  <text class="label" x="91" y="518">CSS</text>
+  <rect x="204" y="504" width="526" height="18" fill="#142a35"/>
+  <rect class="fill b" x="204" y="504" width="420.8" height="18" fill="url(#bar)"/>
+  <rect x="204" y="504" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="518">80%</text>
+
+  <text class="label" x="91" y="547">JavaScript</text>
+  <rect x="204" y="533" width="526" height="18" fill="#142a35"/>
+  <rect class="fill c" x="204" y="533" width="368.2" height="18" fill="url(#bar)"/>
+  <rect x="204" y="533" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="547">70%</text>
+
+  <text class="label" x="91" y="576">Vue</text>
+  <rect x="204" y="562" width="526" height="18" fill="#142a35"/>
+  <rect class="fill d" x="204" y="562" width="210.4" height="18" fill="url(#bar)"/>
+  <rect x="204" y="562" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="576">40%</text>
+
+  <text class="label" x="91" y="605">Git</text>
+  <rect x="204" y="591" width="526" height="18" fill="#142a35"/>
+  <rect class="fill e" x="204" y="591" width="315.6" height="18" fill="url(#bar)"/>
+  <rect x="204" y="591" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="605">60%</text>
+</g>
+
+<rect x="48" y="640" width="768" height="2" fill="#82cbd0"/>
+<text x="450" y="675" text-anchor="middle" font-family="monospace" font-size="12" fill="#c5e7e8">ANDRIN BREM // WINTER LEVEL</text>
+<text x="450" y="698" text-anchor="middle" font-family="monospace" font-size="9" fill="#8ebdc4">INSERT COIN TO EXPLORE</text>
+<rect width="900" height="739" fill="url(#grid)" opacity=".22"/>
+<rect x="12" y="12" width="876" height="715" fill="none" stroke="#82cbd0" stroke-width="2"/>
+</svg>
+
