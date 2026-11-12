@@ -1,27 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="760" viewBox="0 0 900 760">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720">
   <defs>
-    <!-- Himmel -->
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0d1117"/>
-      <stop offset=".45" stop-color="#140f12"/>
-      <stop offset=".6" stop-color="#1a110c"/>
-      <stop offset="1" stop-color="#0d1117"/>
+    <!-- Hintergrund: dunkel oben, warmes Leuchten am Horizont -->
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="720">
+      <stop offset="0"   stop-color="#0a0c13"/>
+      <stop offset=".25" stop-color="#140e12"/>
+      <stop offset=".4"  stop-color="#2a140c"/>
+      <stop offset=".5"  stop-color="#4a2210"/>
+      <stop offset=".6"  stop-color="#0d1117"/>
+      <stop offset="1"   stop-color="#0d1117"/>
     </linearGradient>
 
-    <!-- Linien oben/unten -->
-    <linearGradient id="line" x1="0" x2="1">
-      <stop offset="0" stop-color="#3d1e0a" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#c2541a"/>
-      <stop offset="1" stop-color="#f0883e"/>
-    </linearGradient>
-
-    <!-- Sternschnuppe -->
-    <linearGradient id="tail" x1="0" x2="1">
-      <stop offset="0" stop-color="#ffe7b0"/>
-      <stop offset="1" stop-color="#f0883e" stop-opacity="0"/>
-    </linearGradient>
-
-    <!-- Skill-Balken -->
+    <!-- Skill-Balken (1:1 wie Vorlage) -->
     <linearGradient id="barFill" x1="0" x2="1">
       <stop offset="0" stop-color="#a3400f"/>
       <stop offset="0.6" stop-color="#e07a2e"/>
@@ -30,44 +19,17 @@
     <pattern id="seg" width="8" height="20" patternUnits="userSpaceOnUse">
       <rect width="6" height="20" fill="#fff"/>
     </pattern>
-    <mask id="segs" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="760">
-      <rect width="900" height="760" fill="url(#seg)"/>
+    <mask id="segs" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="720">
+      <rect width="900" height="720" fill="url(#seg)"/>
     </mask>
 
-    <!-- Pixel-Raster -->
+    <!-- Pixel-Raster fuer den Mond -->
     <pattern id="px" width="5" height="5" patternUnits="userSpaceOnUse">
       <rect width="4" height="4" fill="#fff"/>
     </pattern>
-    <mask id="pxMask" maskUnits="userSpaceOnUse" x="-100" y="-100" width="1100" height="960">
-      <rect x="-100" y="-100" width="1100" height="960" fill="url(#px)"/>
+    <mask id="pxMask" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="720">
+      <rect width="900" height="720" fill="url(#px)"/>
     </mask>
-
-    <!-- Huegel hinten -->
-    <linearGradient id="hill" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="0" y2="434">
-      <stop offset="0" stop-color="#3a1d0e"/>
-      <stop offset="1" stop-color="#160b06"/>
-    </linearGradient>
-
-    <!-- Leuchtende Kronen -->
-    <radialGradient id="crown" cx=".5" cy=".42" r=".55">
-      <stop offset="0"   stop-color="#ffe09a"/>
-      <stop offset=".3"  stop-color="#f7b955"/>
-      <stop offset=".55" stop-color="#e0702c"/>
-      <stop offset=".8"  stop-color="#9a3a12"/>
-      <stop offset="1"   stop-color="#4a1a08" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="crownDim" cx=".5" cy=".45" r=".55">
-      <stop offset="0"   stop-color="#e8873a"/>
-      <stop offset=".5"  stop-color="#b14d1a"/>
-      <stop offset=".85" stop-color="#6b2a10"/>
-      <stop offset="1"   stop-color="#3a1506" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="crownRed" cx=".5" cy=".45" r=".55">
-      <stop offset="0"   stop-color="#f59a5a"/>
-      <stop offset=".45" stop-color="#c2421a"/>
-      <stop offset=".85" stop-color="#5e1c0c"/>
-      <stop offset="1"   stop-color="#2e0e06" stop-opacity="0"/>
-    </radialGradient>
 
     <!-- Erntemond -->
     <radialGradient id="moon" cx=".4" cy=".4" r=".6">
@@ -76,314 +38,334 @@
       <stop offset="1" stop-color="#d9692a"/>
     </radialGradient>
 
-    <!-- Kuerbis -->
-    <g id="pumpkin">
-      <circle class="flicker" cx="0" cy="-10" r="30" fill="#f0883e" opacity=".08"/>
-      <rect x="-14" y="-20" width="28" height="20" fill="#d9692a"/>
-      <rect x="-18" y="-16" width="36" height="12" fill="#d9692a"/>
-      <rect x="-8"  y="-20" width="3"  height="20" fill="#b5541f"/>
-      <rect x="5"   y="-20" width="3"  height="20" fill="#b5541f"/>
-      <rect x="-2"  y="-25" width="4"  height="5"  fill="#4f6b3f"/>
-      <rect x="2"   y="-24" width="6"  height="3"  fill="#4f6b3f"/>
-      <g class="flicker" fill="#ffd27a">
-        <rect x="-11" y="-15" width="5" height="4"/>
-        <rect x="6"   y="-15" width="5" height="4"/>
-        <rect x="-8"  y="-7"  width="16" height="3"/>
-        <rect x="-3"  y="-9"  width="3"  height="2"/>
+    <!-- Dither-Muster fuer Retro-Look -->
+    <pattern id="dither" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="2" height="2" fill="#000" fill-opacity=".2"/>
+      <rect x="2" y="2" width="2" height="2" fill="#000" fill-opacity=".2"/>
+    </pattern>
+
+    <!-- Zaun als Muster -->
+    <pattern id="fence" x="50" y="392" width="40" height="28" patternUnits="userSpaceOnUse">
+      <rect y="7"  width="40" height="4" fill="#4a2a18"/>
+      <rect y="17" width="40" height="4" fill="#4a2a18"/>
+      <rect width="6" height="28" fill="#6e4128"/>
+      <rect width="6" height="2"  fill="#a0623a"/>
+    </pattern>
+
+    <!-- Baumkrone im 8-Bit-Stil: Ebenen (Mitte = 0,0) -->
+    <g id="cBase">
+      <rect x="-16" y="-48" width="32" height="8"/>
+      <rect x="-32" y="-40" width="64" height="8"/>
+      <rect x="-40" y="-32" width="80" height="8"/>
+      <rect x="-48" y="-24" width="96" height="32"/>
+      <rect x="-40" y="8"   width="80" height="8"/>
+      <rect x="-32" y="16"  width="64" height="8"/>
+      <rect x="-16" y="24"  width="32" height="8"/>
+      <rect x="-54" y="-8"  width="4"  height="4"/>
+      <rect x="50"  y="-18" width="4"  height="4"/>
+      <rect x="-22" y="-54" width="4"  height="4"/>
+    </g>
+    <g id="cLight">
+      <rect x="-24" y="-40" width="40" height="8"/>
+      <rect x="-32" y="-32" width="56" height="8"/>
+      <rect x="-40" y="-24" width="64" height="24"/>
+      <rect x="-32" y="0"   width="40" height="8"/>
+    </g>
+    <g id="cCore">
+      <rect x="-24" y="-32" width="24" height="8"/>
+      <rect x="-32" y="-24" width="32" height="16"/>
+    </g>
+    <g id="cShade">
+      <rect x="8"  y="8"   width="32" height="8"/>
+      <rect x="0"  y="16"  width="32" height="8"/>
+      <rect x="32" y="-8"  width="16" height="16"/>
+      <rect x="-8" y="24"  width="24" height="8"/>
+    </g>
+
+    <!-- Baum gold (Ursprung = Fuss) -->
+    <g id="treeGold">
+      <rect x="-3"  y="-110" width="6"  height="110" fill="#5a3420"/>
+      <rect x="-12" y="-104" width="9"  height="4"   fill="#5a3420"/>
+      <rect x="3"   y="-96"  width="10" height="4"   fill="#5a3420"/>
+      <g transform="translate(0,-140)">
+        <circle r="72" fill="#f0883e" opacity=".07"/>
+        <use href="#cBase"  fill="#d9692a"/>
+        <use href="#cLight" fill="#f0a040"/>
+        <use href="#cCore"  fill="#ffe09a"/>
+        <use href="#cShade" fill="#8a3212"/>
+        <use href="#cBase"  fill="url(#dither)"/>
+      </g>
+    </g>
+    <!-- Baum rot -->
+    <g id="treeRed">
+      <rect x="-3"  y="-110" width="6"  height="110" fill="#5a3420"/>
+      <rect x="-12" y="-100" width="9"  height="4"   fill="#5a3420"/>
+      <rect x="3"   y="-92"  width="10" height="4"   fill="#5a3420"/>
+      <g transform="translate(0,-140)">
+        <circle r="72" fill="#c2421a" opacity=".07"/>
+        <use href="#cBase"  fill="#b23a16"/>
+        <use href="#cLight" fill="#e8703a"/>
+        <use href="#cCore"  fill="#ffb07a"/>
+        <use href="#cShade" fill="#5e1c0c"/>
+        <use href="#cBase"  fill="url(#dither)"/>
       </g>
     </g>
 
-    <!-- Pilz -->
-    <g id="shroom">
-      <rect x="-2" y="-8"  width="4"  height="8" fill="#e8d2b0"/>
-      <rect x="-7" y="-13" width="14" height="5" fill="#c2541a"/>
-      <rect x="-5" y="-15" width="10" height="2" fill="#c2541a"/>
-      <rect x="-4" y="-12" width="2"  height="2" fill="#ffe7b0"/>
-      <rect x="2"  y="-14" width="2"  height="2" fill="#ffe7b0"/>
+    <!-- Heuballen (Ursprung = unten links) -->
+    <g id="hay">
+      <rect x="0"  y="-18" width="30" height="18" fill="#c9963a"/>
+      <rect x="0"  y="-18" width="30" height="3"  fill="#e8c060"/>
+      <rect x="9"  y="-18" width="2"  height="18" fill="#a87628"/>
+      <rect x="20" y="-18" width="2"  height="18" fill="#a87628"/>
+      <rect x="4"  y="-21" width="2"  height="3"  fill="#e8c060"/>
+      <rect x="24" y="-21" width="2"  height="3"  fill="#e8c060"/>
+    </g>
+
+    <!-- Kuerbis ohne Gesicht -->
+    <g id="pumpkin">
+      <rect x="-10" y="-14" width="20" height="14" fill="#d9692a"/>
+      <rect x="-13" y="-11" width="26" height="8"  fill="#d9692a"/>
+      <rect x="-5"  y="-14" width="2"  height="14" fill="#b5541f"/>
+      <rect x="3"   y="-14" width="2"  height="14" fill="#b5541f"/>
+      <rect x="-1"  y="-18" width="3"  height="4"  fill="#4f6b3f"/>
+    </g>
+
+    <!-- Funkelstern -->
+    <g id="spark">
+      <rect x="-1" y="-4" width="2" height="8"/>
+      <rect x="-4" y="-1" width="8" height="2"/>
     </g>
 
     <style>
       text { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; }
       .pixel { shape-rendering: crispEdges; }
 
-      .star { fill: #f5c27a; animation: twinkle 4s ease-in-out infinite; }
-      @keyframes twinkle { 0%,100% { opacity: .15 } 50% { opacity: .9 } }
+      .star { animation: twinkle 4s ease-in-out infinite; }
+      @keyframes twinkle { 0%,100% { opacity: .15 } 50% { opacity: 1 } }
 
       .moon { animation: glow 7s ease-in-out infinite; }
       @keyframes glow { 0%,100% { opacity: .8 } 50% { opacity: 1 } }
 
-      .shoot { opacity: 0; animation: shoot 12s ease-out infinite 4s; }
-      @keyframes shoot {
-        0%   { transform: translate(0,0); opacity: 0 }
-        2%   { opacity: 1 }
-        8%   { transform: translate(-200px,80px); opacity: 0 }
-        100% { transform: translate(-200px,80px); opacity: 0 }
-      }
+      .wind { stroke-dasharray: 60 600; animation: wind 9s linear infinite; }
+      @keyframes wind { from { stroke-dashoffset: 660 } to { stroke-dashoffset: -660 } }
 
-      .geese { animation: geese 30s linear infinite; }
-      @keyframes geese { from { transform: translateX(980px) } to { transform: translateX(-160px) } }
-      .flap { transform-box: fill-box; transform-origin: center;
-              animation: flap .45s ease-in-out infinite alternate; }
-      @keyframes flap { from { transform: scaleY(1) } to { transform: scaleY(-.4) } }
-
-      .fog { animation: fog 22s ease-in-out infinite alternate; }
-      @keyframes fog { from { transform: translateX(-40px) } to { transform: translateX(40px) } }
+      .fog { animation: fog 20s ease-in-out infinite alternate; }
+      @keyframes fog { from { transform: translateX(-30px) } to { transform: translateX(30px) } }
 
       .sway { transform-box: fill-box; transform-origin: 50% 100%;
               animation: sway 7s ease-in-out infinite alternate; }
       @keyframes sway { from { transform: rotate(-1deg) } to { transform: rotate(1deg) } }
 
-      .crowns { animation: breathe 6s ease-in-out infinite; }
-      @keyframes breathe { 0%,100% { opacity: .85 } 50% { opacity: 1 } }
+      .flicker { animation: flicker 2.2s steps(2) infinite; }
+      @keyframes flicker { 0%,100% { opacity: 1 } 30% { opacity: .6 } 60% { opacity: .9 } }
 
-      .reed { transform-box: fill-box; transform-origin: bottom center;
-              animation: reed 5s ease-in-out infinite alternate; }
-      @keyframes reed { from { transform: rotate(-3deg) } to { transform: rotate(3deg) } }
-
+      .tail { transform-box: fill-box; transform-origin: 0% 100%;
+              animation: tail 2.8s ease-in-out infinite alternate; }
+      @keyframes tail { from { transform: rotate(-6deg) } to { transform: rotate(10deg) } }
       .eye { transform-box: fill-box; transform-origin: center; animation: blink 5s infinite; }
       @keyframes blink { 0%,90%,100% { transform: scaleY(1) } 93% { transform: scaleY(.1) } }
-      .owl { animation: tilt 9s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
-      @keyframes tilt { 0%,40%,100% { transform: rotate(0) } 50%,70% { transform: rotate(-8deg) } }
-
-      .flicker { animation: flicker 2.2s steps(2) infinite; }
-      @keyframes flicker { 0%,100% { opacity: 1 } 30% { opacity: .65 } 60% { opacity: .9 } }
 
       .fly { fill: #ffd27a; animation: fly 5s ease-in-out infinite alternate; }
       @keyframes fly {
         0%   { transform: translate(0,0); opacity: .1 }
         50%  { opacity: 1 }
-        100% { transform: translate(14px,-18px); opacity: .2 }
+        100% { transform: translate(12px,-18px); opacity: .2 }
       }
 
-      .leaf { font-size: 14px; opacity: 0; transform-box: fill-box; transform-origin: center;
+      .leaf { opacity: 0; transform-box: fill-box; transform-origin: center;
               animation: leaf 12s linear infinite; }
       @keyframes leaf {
         0%   { transform: translate(0,0) rotate(0deg); opacity: 0 }
         10%  { opacity: .95 }
-        35%  { transform: translate(-22px,100px) rotate(120deg) }
-        65%  { transform: translate(18px,200px) rotate(240deg) }
+        35%  { transform: translate(-24px,95px) rotate(150deg) }
+        65%  { transform: translate(16px,190px) rotate(290deg) }
         90%  { opacity: .7 }
-        100% { transform: translate(-6px,290px) rotate(360deg); opacity: 0 }
+        100% { transform: translate(-8px,270px) rotate(420deg); opacity: 0 }
       }
 
-      .gust { font-size: 13px; opacity: 0; transform-box: fill-box; transform-origin: center;
-              animation: gust 14s linear infinite; }
-      @keyframes gust {
-        0%   { transform: translateX(0) rotate(0deg); opacity: 0 }
-        8%   { opacity: .9 }
-        92%  { opacity: .9 }
-        100% { transform: translateX(-760px) rotate(-720deg); opacity: 0 }
-      }
-
-      .title { fill: #f0a040; font-size: 14px; letter-spacing: 1px; }
+      .head  { fill: #f0a040; font-size: 13px; letter-spacing: 2px; }
+      .meta  { fill: #6e4128; font-size: 12px; text-anchor: end; }
       .label { fill: #f0b060; font-size: 14px; }
       .pct   { fill: #d98a4a; font-size: 14px; text-anchor: end; }
 
+      /* Balken-Animation 1:1 wie Vorlage */
       .bar { transform-box: fill-box; transform-origin: left center;
              animation: grow 1.8s cubic-bezier(.2,.8,.2,1) both; }
       @keyframes grow { from { transform: scaleX(0) } to { transform: scaleX(1) } }
-
-      .dot { fill: #e07a2e; font-size: 13px; text-anchor: middle; animation: twinkle 3s ease-in-out infinite; }
     </style>
   </defs>
 
-  <!-- Hintergrund -->
-  <rect width="900" height="760" rx="12" fill="url(#sky)"/>
-  <rect x="40" y="28" width="820" height="4" fill="url(#line)"/>
+  <!-- Hintergrund + gestrichelter Rahmen -->
+  <rect width="900" height="720" rx="14" fill="url(#bg)"/>
+  <rect x="12" y="12" width="876" height="696" rx="8" fill="none" stroke="#3d1e0a" stroke-dasharray="6 4"/>
 
-  <!-- Pixelsterne -->
-  <g class="pixel">
-    <rect class="star" x="90"  y="70"  width="3" height="3"/>
-    <rect class="star" x="230" y="95"  width="2" height="2" style="animation-delay:-1.4s"/>
-    <rect class="star" x="330" y="58"  width="4" height="4" style="animation-delay:-2.7s"/>
-    <rect class="star" x="420" y="105" width="2" height="2" style="animation-delay:-.6s"/>
-    <rect class="star" x="510" y="62"  width="3" height="3" style="animation-delay:-3.2s"/>
-    <rect class="star" x="610" y="118" width="2" height="2" style="animation-delay:-1.9s"/>
-    <rect class="star" x="660" y="52"  width="3" height="3" style="animation-delay:-.9s"/>
-    <rect class="star" x="850" y="150" width="3" height="3" style="animation-delay:-2.3s"/>
-    <rect class="star" x="180" y="140" width="2" height="2" style="animation-delay:-3.6s"/>
+  <!-- Sterne -->
+  <g fill="#f5c27a" class="pixel">
+    <use class="star" href="#spark" x="160" y="70"/>
+    <use class="star" href="#spark" x="620" y="56"  style="animation-delay:-2s"/>
+    <use class="star" href="#spark" x="805" y="120" style="animation-delay:-3.3s"/>
+    <rect class="star" x="80"  y="110" width="3" height="3" style="animation-delay:-1.2s"/>
+    <rect class="star" x="260" y="50"  width="2" height="2" style="animation-delay:-2.6s"/>
+    <rect class="star" x="340" y="120" width="3" height="3" style="animation-delay:-.5s"/>
+    <rect class="star" x="420" y="60"  width="2" height="2" style="animation-delay:-3s"/>
+    <rect class="star" x="520" y="100" width="3" height="3" style="animation-delay:-1.7s"/>
+    <rect class="star" x="700" y="80"  width="2" height="2" style="animation-delay:-.9s"/>
+    <rect class="star" x="850" y="60"  width="3" height="3" style="animation-delay:-3.7s"/>
   </g>
 
-  <!-- Sternschnuppe -->
-  <line class="shoot" x1="560" y1="50" x2="600" y2="34" stroke="url(#tail)" stroke-width="2" stroke-linecap="round"/>
+  <!-- Windboeen -->
+  <g fill="none" stroke="#f0b060" stroke-opacity=".3" stroke-width="2" stroke-linecap="round">
+    <path class="wind" d="M70 180 C150 150, 210 210, 290 180 S410 150, 470 175"/>
+    <path class="wind" style="animation-delay:-4.5s; animation-duration:11s"
+          d="M460 140 C540 110, 600 170, 680 140 S790 115, 840 135"/>
+  </g>
 
-  <!-- Erntemond mit Kratern -->
+  <!-- Grosser Erntemond, geht hinter den Huegeln auf -->
   <g class="moon">
-    <circle cx="765" cy="100" r="56" fill="#f0883e" opacity=".05"/>
-    <circle cx="765" cy="100" r="40" fill="#f0883e" opacity=".08"/>
+    <circle cx="450" cy="292" r="120" fill="#f0883e" opacity=".05"/>
+    <circle cx="450" cy="292" r="88"  fill="#f0883e" opacity=".08"/>
     <g mask="url(#pxMask)">
-      <circle cx="765" cy="100" r="26" fill="url(#moon)"/>
-      <circle cx="757" cy="92"  r="5"  fill="#e9a04a"/>
-      <circle cx="773" cy="108" r="4"  fill="#e9a04a"/>
-      <circle cx="774" cy="90"  r="2.5" fill="#e9a04a"/>
+      <circle cx="450" cy="292" r="60" fill="url(#moon)"/>
+      <circle cx="432" cy="272" r="9" fill="#e9a04a"/>
+      <circle cx="472" cy="300" r="7" fill="#e9a04a"/>
+      <circle cx="466" cy="262" r="4" fill="#e9a04a"/>
+      <circle cx="440" cy="314" r="5" fill="#e9a04a"/>
     </g>
   </g>
 
-  <!-- Zugvoegel in V-Formation -->
-  <g fill="none" stroke="#3a1d0e" stroke-width="2" class="pixel">
-    <g transform="translate(0,150)">
-      <g class="geese">
-        <path class="flap" d="M0 0L5 4L10 0"/>
-        <path class="flap" d="M14 -8L19 -4L24 -8" style="animation-delay:-.15s"/>
-        <path class="flap" d="M14 8L19 12L24 8" style="animation-delay:-.2s"/>
-        <path class="flap" d="M28 -16L33 -12L38 -16" style="animation-delay:-.3s"/>
-        <path class="flap" d="M28 16L33 20L38 16" style="animation-delay:-.35s"/>
-      </g>
-    </g>
-  </g>
-
-  <!-- Huegel hinten -->
-  <g mask="url(#pxMask)">
-    <path fill="url(#hill)"
-      d="M45 434V365Q140 322 245 352Q350 300 455 340Q560 306 655 346Q760 314 855 352V434Z"/>
-  </g>
-
-  <!-- Nebelschwaden -->
-  <g fill="#f0b060">
-    <rect class="fog" x="60"  y="372" width="320" height="14" rx="7" opacity=".05"/>
-    <rect class="fog" x="420" y="392" width="380" height="12" rx="6" opacity=".045" style="animation-delay:-8s; animation-duration:28s"/>
-    <rect class="fog" x="200" y="408" width="300" height="10" rx="5" opacity=".04" style="animation-delay:-14s"/>
-  </g>
-
-  <!-- Schilf -->
-  <g stroke="#4f6b3f" stroke-width="2">
-    <line class="reed" x1="58"  y1="434" x2="58"  y2="305"/>
-    <line class="reed" x1="66"  y1="434" x2="68"  y2="345" style="animation-delay:-1s"/>
-    <line class="reed" x1="372" y1="434" x2="374" y2="335" style="animation-delay:-2s"/>
-    <line class="reed" x1="842" y1="434" x2="840" y2="320" style="animation-delay:-1.5s"/>
-    <line class="reed" x1="850" y1="434" x2="852" y2="362" style="animation-delay:-2.5s"/>
-  </g>
-  <g fill="#8b5a3c" class="pixel">
-    <rect x="56" y="300" width="4" height="10"/>
-    <rect x="840" y="315" width="4" height="10"/>
-  </g>
-
-  <!-- Baum 1 -->
-  <g class="sway">
-    <rect class="pixel" x="148" y="290" width="4" height="144" fill="#6e4128"/>
-    <g class="crowns" mask="url(#pxMask)">
-      <ellipse cx="150" cy="225" rx="50" ry="80" fill="url(#crown)"/>
-    </g>
-  </g>
-  <!-- Baum 2 -->
-  <g class="sway" style="animation-delay:-2s; animation-duration:6s">
-    <rect class="pixel" x="288" y="350" width="4" height="84" fill="#6e4128"/>
-    <g class="crowns" mask="url(#pxMask)" style="animation-delay:-1s">
-      <ellipse cx="290" cy="318" rx="32" ry="46" fill="url(#crownRed)"/>
-    </g>
-  </g>
-  <!-- Baum 3 (gross) -->
-  <g class="sway" style="animation-delay:-4s; animation-duration:8s">
-    <rect class="pixel" x="447" y="280" width="6" height="154" fill="#6e4128"/>
-    <g class="crowns" mask="url(#pxMask)" style="animation-delay:-2s">
-      <ellipse cx="450" cy="200" rx="60" ry="95" fill="url(#crown)"/>
-    </g>
-  </g>
-  <!-- Baum 4 -->
-  <g class="sway" style="animation-delay:-1s; animation-duration:6.5s">
-    <rect class="pixel" x="598" y="355" width="4" height="79" fill="#6e4128"/>
-    <g class="crowns" mask="url(#pxMask)" style="animation-delay:-3s">
-      <ellipse cx="600" cy="322" rx="30" ry="42" fill="url(#crownDim)"/>
-    </g>
-  </g>
-  <!-- Baum 5 mit Ast fuer die Eule -->
-  <g class="sway" style="animation-delay:-3s; animation-duration:7.5s">
-    <rect class="pixel" x="733" y="300" width="4" height="134" fill="#6e4128"/>
-    <rect class="pixel" x="737" y="330" width="48" height="3" fill="#6e4128"/>
-    <g class="crowns" mask="url(#pxMask)" style="animation-delay:-4s">
-      <ellipse cx="735" cy="240" rx="46" ry="74" fill="url(#crown)"/>
-    </g>
-  </g>
-
-  <!-- ASCII-Aeste -->
-  <g fill="#a0623a" font-size="13" text-anchor="middle" xml:space="preserve">
-    <text x="150" y="300">\ | /</text>
-    <text x="150" y="314"> \|/ </text>
-    <text x="290" y="360">\|/</text>
-    <text x="450" y="292">\ | /</text>
-    <text x="450" y="306"> \|/ </text>
-    <text x="600" y="364">\|/</text>
-    <text x="735" y="310">\ | /</text>
-  </g>
-
-  <!-- Eule -->
-  <g class="pixel" transform="translate(772,312)">
-    <g class="owl">
-      <rect x="-8" y="-4" width="4"  height="4"  fill="#5a3420"/>
-      <rect x="4"  y="-4" width="4"  height="4"  fill="#5a3420"/>
-      <rect x="-8" y="0"  width="16" height="18" fill="#5a3420"/>
-      <rect x="-6" y="2"  width="12" height="7"  fill="#7a4a2c"/>
-      <rect class="eye" x="-5" y="3" width="4" height="4" fill="#ffd27a"/>
-      <rect class="eye" x="1"  y="3" width="4" height="4" fill="#ffd27a"/>
-      <rect x="-1" y="7"  width="2"  height="2"  fill="#c2541a"/>
-      <rect x="-4" y="10" width="8"  height="6"  fill="#8b5a3c"/>
-      <rect x="-4" y="18" width="3"  height="2"  fill="#c2541a"/>
-      <rect x="1"  y="18" width="3"  height="2"  fill="#c2541a"/>
-    </g>
-  </g>
-
-  <!-- Buesche -->
-  <g class="crowns" mask="url(#pxMask)">
-    <ellipse cx="520" cy="424" rx="22" ry="12" fill="url(#crownDim)"/>
-    <ellipse cx="805" cy="422" rx="24" ry="14" fill="url(#crownRed)"/>
-    <ellipse cx="95"  cy="424" rx="20" ry="11" fill="url(#crownDim)"/>
-  </g>
-
-  <!-- Kuerbisse + Pilze -->
+  <!-- Treppen-Huegel -->
   <g class="pixel">
-    <use href="#pumpkin" transform="translate(215,434)"/>
-    <use href="#pumpkin" transform="translate(658,434) scale(.75)"/>
-    <use href="#shroom"  transform="translate(395,434)"/>
-    <use href="#shroom"  transform="translate(406,434) scale(.7)"/>
-    <use href="#shroom"  transform="translate(695,434) scale(.85)"/>
+    <path fill="#4a2412"
+      d="M45 420V340H90V330H140V320H190V312H240V320H290V330H330V322H370V316H410V324H450V318H490V326H530V316H580V306H630V314H680V324H730V316H780V326H820V334H855V420Z"/>
+    <path fill="url(#dither)"
+      d="M45 420V340H90V330H140V320H190V312H240V320H290V330H330V322H370V316H410V324H450V318H490V326H530V316H580V306H630V314H680V324H730V316H780V326H820V334H855V420Z"/>
+    <path fill="#22110a"
+      d="M45 420V370H110V362H180V356H250V364H320V372H400V366H470V360H540V368H620V362H700V354H770V362H855V420Z"/>
+  </g>
+
+  <!-- Nebel -->
+  <g fill="#f0b060">
+    <rect class="fog" x="80"  y="350" width="340" height="10" opacity=".06"/>
+    <rect class="fog" x="460" y="366" width="360" height="8"  opacity=".05" style="animation-delay:-9s; animation-duration:26s"/>
+  </g>
+
+  <!-- Baeume -->
+  <g class="pixel">
+    <g transform="translate(140,420)"><g class="sway"><use href="#treeGold"/></g></g>
+    <g transform="translate(265,420) scale(.68)"><g class="sway" style="animation-delay:-2s; animation-duration:6s"><use href="#treeRed"/></g></g>
+    <g transform="translate(560,420) scale(.55)"><g class="sway" style="animation-delay:-3s; animation-duration:5.5s"><use href="#treeRed"/></g></g>
+    <g transform="translate(660,420) scale(.95)"><g class="sway" style="animation-delay:-4s; animation-duration:8s"><use href="#treeGold"/></g></g>
+    <g transform="translate(790,420) scale(.75)"><g class="sway" style="animation-delay:-1s; animation-duration:6.5s"><use href="#treeRed"/></g></g>
+  </g>
+
+  <!-- Zaun -->
+  <rect class="pixel" x="50" y="392" width="806" height="28" fill="url(#fence)"/>
+
+  <!-- Laternen -->
+  <g class="pixel">
+    <circle class="flicker" cx="333" cy="354" r="30" fill="#ffb347" opacity=".1"/>
+    <rect x="331" y="360" width="4"  height="32" fill="#6e4128"/>
+    <rect x="324" y="343" width="18" height="4"  fill="#6e4128"/>
+    <rect x="326" y="347" width="14" height="14" fill="#3a1d0e"/>
+    <rect class="flicker" x="329" y="350" width="8" height="8" fill="#ffd27a"/>
+
+    <circle class="flicker" cx="573" cy="354" r="30" fill="#ffb347" opacity=".1" style="animation-delay:-1s"/>
+    <rect x="571" y="360" width="4"  height="32" fill="#6e4128"/>
+    <rect x="564" y="343" width="18" height="4"  fill="#6e4128"/>
+    <rect x="566" y="347" width="14" height="14" fill="#3a1d0e"/>
+    <rect class="flicker" x="569" y="350" width="8" height="8" fill="#ffd27a" style="animation-delay:-1s"/>
+  </g>
+
+  <!-- Boden -->
+  <rect x="45" y="420" width="810" height="14" fill="#1a0f08"/>
+  <line x1="45" y1="420" x2="855" y2="420" stroke="#8b5a3c"/>
+  <g class="pixel" opacity=".85">
+    <rect x="120" y="417" width="5" height="3" fill="#c2541a"/>
+    <rect x="300" y="417" width="4" height="3" fill="#f0a040"/>
+    <rect x="390" y="417" width="5" height="3" fill="#e8833a"/>
+    <rect x="520" y="417" width="4" height="3" fill="#c2541a"/>
+    <rect x="610" y="417" width="5" height="3" fill="#f0a040"/>
+    <rect x="760" y="417" width="4" height="3" fill="#e8833a"/>
+  </g>
+
+  <!-- Heu + Kuerbisse -->
+  <g class="pixel">
+    <use href="#hay" x="180" y="420"/>
+    <use href="#hay" x="705" y="420"/>
+    <use href="#pumpkin" x="228" y="420"/>
+    <use href="#pumpkin" transform="translate(690,420) scale(.75)"/>
+  </g>
+
+  <!-- Fuchs unter dem Mond -->
+  <g class="pixel" transform="translate(455,420)">
+    <g class="tail">
+      <rect x="6"  y="-8"  width="14" height="6" fill="#d9692a"/>
+      <rect x="14" y="-14" width="8"  height="8" fill="#d9692a"/>
+      <rect x="16" y="-18" width="6"  height="5" fill="#f5e6d0"/>
+    </g>
+    <rect x="-8"  y="-16" width="16" height="16" fill="#d9692a"/>
+    <rect x="-8"  y="-14" width="6"  height="12" fill="#f5e6d0"/>
+    <rect x="-14" y="-26" width="14" height="10" fill="#d9692a"/>
+    <rect x="-18" y="-21" width="5"  height="4"  fill="#f5e6d0"/>
+    <rect x="-19" y="-21" width="2"  height="2"  fill="#1a0f08"/>
+    <rect x="-13" y="-30" width="3"  height="4"  fill="#d9692a"/>
+    <rect x="-6"  y="-30" width="3"  height="4"  fill="#d9692a"/>
+    <rect x="-13" y="-30" width="3"  height="1"  fill="#1a0f08"/>
+    <rect x="-6"  y="-30" width="3"  height="1"  fill="#1a0f08"/>
+    <rect class="eye" x="-10" y="-23" width="2" height="2" fill="#1a0f08"/>
+    <rect x="-7"  y="-2"  width="3"  height="2"  fill="#3a1d0e"/>
+    <rect x="-1"  y="-2"  width="3"  height="2"  fill="#3a1d0e"/>
   </g>
 
   <!-- Gluehwuermchen -->
-  <rect class="fly" x="245" y="360" width="3" height="3"/>
-  <rect class="fly" x="360" y="270" width="3" height="3" style="animation-delay:-1.5s"/>
-  <rect class="fly" x="530" y="300" width="3" height="3" style="animation-delay:-3s"/>
-  <rect class="fly" x="665" y="370" width="3" height="3" style="animation-delay:-2s"/>
-  <rect class="fly" x="815" y="285" width="3" height="3" style="animation-delay:-4s"/>
-  <rect class="fly" x="120" y="350" width="2" height="2" style="animation-delay:-.7s"/>
-
-  <!-- Fallende Blaetter -->
-  <text class="leaf" x="120" y="140" fill="#e8833a">&#10086;</text>
-  <text class="leaf" x="185" y="160" fill="#f0a040" style="animation-delay:-3s; animation-duration:14s">&#10087;</text>
-  <text class="leaf" x="260" y="130" fill="#c2541a" style="animation-delay:-6s">&#10086;</text>
-  <text class="leaf" x="330" y="150" fill="#f0a040" style="animation-delay:-9s; animation-duration:11s">&#10087;</text>
-  <text class="leaf" x="420" y="120" fill="#e8833a" style="animation-delay:-1.5s; animation-duration:13s">&#10086;</text>
-  <text class="leaf" x="490" y="140" fill="#c2541a" style="animation-delay:-7.5s">&#10087;</text>
-  <text class="leaf" x="560" y="160" fill="#f0a040" style="animation-delay:-4.5s; animation-duration:15s">&#10086;</text>
-  <text class="leaf" x="640" y="135" fill="#e8833a" style="animation-delay:-10s">&#10087;</text>
-  <text class="leaf" x="700" y="150" fill="#c2541a" style="animation-delay:-2.5s; animation-duration:12s">&#10086;</text>
-  <text class="leaf" x="790" y="170" fill="#f0a040" style="animation-delay:-8.5s; animation-duration:14s">&#10087;</text>
-
-  <!-- Boden mit Laubstreu -->
-  <rect x="45" y="434" width="810" height="6" fill="#1a0f08"/>
-  <line x1="45" y1="434" x2="855" y2="434" stroke="#8b5a3c"/>
-  <g class="pixel" opacity=".85">
-    <rect x="128" y="430" width="5" height="4" fill="#c2541a"/>
-    <rect x="166" y="431" width="4" height="3" fill="#e8833a"/>
-    <rect x="250" y="430" width="5" height="4" fill="#f0a040"/>
-    <rect x="330" y="431" width="4" height="3" fill="#c2541a"/>
-    <rect x="430" y="430" width="5" height="4" fill="#e8833a"/>
-    <rect x="470" y="431" width="4" height="3" fill="#f0a040"/>
-    <rect x="560" y="430" width="5" height="4" fill="#c2541a"/>
-    <rect x="620" y="431" width="4" height="3" fill="#f0a040"/>
-    <rect x="760" y="430" width="5" height="4" fill="#e8833a"/>
+  <g class="pixel">
+    <rect class="fly" x="210" y="370" width="3" height="3"/>
+    <rect class="fly" x="380" y="330" width="3" height="3" style="animation-delay:-1.5s"/>
+    <rect class="fly" x="510" y="350" width="3" height="3" style="animation-delay:-3s"/>
+    <rect class="fly" x="610" y="300" width="2" height="2" style="animation-delay:-2s"/>
+    <rect class="fly" x="830" y="340" width="3" height="3" style="animation-delay:-4s"/>
+    <rect class="fly" x="95"  y="330" width="2" height="2" style="animation-delay:-.7s"/>
   </g>
 
-  <!-- Skills -->
-  <line x1="45" y1="458" x2="855" y2="458" stroke="#3d1e0a" stroke-dasharray="3 6"/>
-  <text class="title" x="62" y="494">the harvest</text>
-  <line x1="175" y1="490" x2="805" y2="490" stroke="#8b5a3c" stroke-opacity=".7" stroke-dasharray="4 3"/>
+  <!-- Fallende Pixel-Blaetter -->
+  <g class="pixel">
+    <rect class="leaf" x="110" y="150" width="5" height="5" fill="#e8833a"/>
+    <rect class="leaf" x="190" y="170" width="4" height="4" fill="#f0a040" style="animation-delay:-3s; animation-duration:14s"/>
+    <rect class="leaf" x="270" y="140" width="6" height="4" fill="#c2541a" style="animation-delay:-6s"/>
+    <rect class="leaf" x="350" y="160" width="4" height="4" fill="#f0a040" style="animation-delay:-9s; animation-duration:11s"/>
+    <rect class="leaf" x="440" y="130" width="5" height="5" fill="#e8833a" style="animation-delay:-1.5s; animation-duration:13s"/>
+    <rect class="leaf" x="530" y="150" width="6" height="4" fill="#c2541a" style="animation-delay:-7.5s"/>
+    <rect class="leaf" x="600" y="170" width="4" height="4" fill="#f0a040" style="animation-delay:-4.5s; animation-duration:15s"/>
+    <rect class="leaf" x="680" y="140" width="5" height="5" fill="#e8833a" style="animation-delay:-10s"/>
+    <rect class="leaf" x="750" y="160" width="6" height="4" fill="#c2541a" style="animation-delay:-2.5s; animation-duration:12s"/>
+    <rect class="leaf" x="820" y="175" width="4" height="4" fill="#f0a040" style="animation-delay:-8.5s; animation-duration:14s"/>
+  </g>
 
-  <text class="label" x="62" y="528">HTML</text>
-  <text class="label" x="62" y="553">CSS</text>
-  <text class="label" x="62" y="578">JavaScript</text>
-  <text class="label" x="62" y="603">Vue</text>
-  <text class="label" x="62" y="628">Git</text>
+  <!-- Skills: haengendes Holzschild -->
+  <g stroke="#8b5a3c" stroke-width="2" stroke-dasharray="2 2">
+    <line x1="110" y1="434" x2="110" y2="462"/>
+    <line x1="790" y1="434" x2="790" y2="462"/>
+  </g>
+  <rect x="60" y="462" width="780" height="186" fill="#150d08" stroke="#5a3420" stroke-width="3"/>
+  <rect x="68" y="470" width="764" height="170" fill="none" stroke="#2a1810"/>
+  <g class="pixel" fill="#8b5a3c">
+    <rect x="66"  y="468" width="4" height="4"/>
+    <rect x="830" y="468" width="4" height="4"/>
+    <rect x="66"  y="638" width="4" height="4"/>
+    <rect x="830" y="638" width="4" height="4"/>
+  </g>
 
+  <text class="head" x="80" y="494"><tspan fill="#e07a2e">&#10087;</tspan> SEASON 03 // SKILLS</text>
+  <text class="meta" x="816" y="494">[ ripe 5/5 ]</text>
+  <line x1="80" y1="504" x2="816" y2="504" stroke="#8b5a3c" stroke-opacity=".5" stroke-dasharray="2 5"/>
+
+  <text class="label" x="80" y="528">HTML</text>
+  <text class="label" x="80" y="553">CSS</text>
+  <text class="label" x="80" y="578">JavaScript</text>
+  <text class="label" x="80" y="603">Vue</text>
+  <text class="label" x="80" y="628">Git</text>
+
+  <!-- Balken 1:1 wie Vorlage -->
   <g mask="url(#segs)">
     <rect x="180" y="516" width="550" height="16" fill="#24170f"/>
     <rect x="180" y="541" width="550" height="16" fill="#24170f"/>
@@ -404,24 +386,17 @@
   <text class="pct" x="805" y="603">40%</text>
   <text class="pct" x="805" y="628">55%</text>
 
-  <!-- Vom Wind verwehte Blaetter -->
-  <text class="gust" x="820" y="660" fill="#e8833a">&#10087;</text>
-  <text class="gust" x="820" y="664" fill="#c2541a" style="animation-delay:-5s; animation-duration:16s">&#10086;</text>
-  <text class="gust" x="820" y="658" fill="#f0a040" style="animation-delay:-10s; animation-duration:13s">&#10087;</text>
-
-  <line x1="45" y1="676" x2="855" y2="676" stroke="#8b5a3c"/>
-
-  <!-- Deko unten -->
-  <text class="dot" x="340" y="712">&#10086;</text>
-  <text class="dot" x="368" y="712" style="animation-delay:-.3s">&#183;</text>
-  <text class="dot" x="396" y="712" style="animation-delay:-.6s">&#10022;</text>
-  <text class="dot" x="424" y="712" style="animation-delay:-.9s">&#183;</text>
-  <text class="dot" x="452" y="712" style="animation-delay:-1.2s">&#10087;</text>
-  <text class="dot" x="480" y="712" style="animation-delay:-1.5s">&#183;</text>
-  <text class="dot" x="508" y="712" style="animation-delay:-1.8s">&#10022;</text>
-  <text class="dot" x="536" y="712" style="animation-delay:-2.1s">&#183;</text>
-  <text class="dot" x="564" y="712" style="animation-delay:-2.4s">&#10086;</text>
-
-  <rect x="40" y="732" width="820" height="4" fill="url(#line)"/>
+  <!-- Footer: Pixel-Eichel -->
+  <g stroke="#8b5a3c" stroke-opacity=".5" stroke-dasharray="2 6">
+    <line x1="300" y1="684" x2="425" y2="684"/>
+    <line x1="475" y1="684" x2="600" y2="684"/>
+  </g>
+  <g class="pixel">
+    <rect x="449" y="671" width="2"  height="3"  fill="#6e4128"/>
+    <rect x="442" y="674" width="16" height="5"  fill="#8b5a3c"/>
+    <rect x="444" y="679" width="12" height="8"  fill="#c2541a"/>
+    <rect x="446" y="687" width="8"  height="3"  fill="#c2541a"/>
+    <rect x="449" y="690" width="2"  height="2"  fill="#a3400f"/>
+    <rect x="445" y="680" width="3"  height="3"  fill="#f0a040"/>
+  </g>
 </svg>
-
