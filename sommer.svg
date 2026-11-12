@@ -1,1 +1,149 @@
 
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 739">
+<defs>
+  <linearGradient id="sky" x2="0" y2="1">
+    <stop stop-color="#102c28"/><stop offset="1" stop-color="#315b3b"/>
+  </linearGradient>
+  <linearGradient id="ground" x2="0" y2="1">
+    <stop stop-color="#527c3e"/><stop offset="1" stop-color="#1b382b"/>
+  </linearGradient>
+  <linearGradient id="bar" x2="1">
+    <stop stop-color="#28643c"/><stop offset=".5" stop-color="#76b94c"/><stop offset="1" stop-color="#d7e88a"/>
+  </linearGradient>
+  <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse">
+    <path d="M0 0H5V5" fill="none" stroke="#101e19" stroke-width=".6" opacity=".3"/>
+  </pattern>
+  <pattern id="segments" width="7" height="18" patternUnits="userSpaceOnUse">
+    <path d="M4 0V18" stroke="#10251b" stroke-width="2" opacity=".65"/>
+  </pattern>
+  <style>
+    @keyframes reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    .fill{transform-box:fill-box;transform-origin:left center;animation:reveal 1.4s cubic-bezier(.2,.8,.2,1) both}
+    .a{animation-delay:.2s}.b{animation-delay:.65s}.c{animation-delay:1.1s}.d{animation-delay:1.55s}.e{animation-delay:2s}
+    .label{font:13px monospace;fill:#e5f2ce}
+    .pct{font:12px monospace;fill:#d5e99a}
+    .pixel{shape-rendering:crispEdges}
+  </style>
+</defs>
+
+<rect width="900" height="739" fill="url(#sky)"/>
+<rect x="48" y="45" width="768" height="3" fill="#a8cf6a"/>
+<rect x="48" y="52" width="768" height="1" fill="#d9e7a0" opacity=".4"/>
+
+<!-- Pixel stars and sun -->
+<g fill="#e8e99a">
+  <rect x="100" y="90" width="5" height="5"/><rect x="185" y="130" width="3" height="3"/>
+  <rect x="330" y="82" width="4" height="4"/><rect x="455" y="118" width="3" height="3"/>
+  <rect x="690" y="83" width="4" height="4"/><rect x="770" y="142" width="3" height="3"/>
+</g>
+<g class="pixel">
+  <rect x="645" y="90" width="100" height="12" fill="#f4d96a"/>
+  <rect x="625" y="102" width="140" height="12" fill="#f4d96a"/>
+  <rect x="613" y="114" width="164" height="52" fill="#f4d96a"/>
+  <rect x="625" y="166" width="140" height="12" fill="#e9a84c"/>
+  <rect x="645" y="178" width="100" height="12" fill="#e9a84c"/>
+  <rect x="650" y="125" width="12" height="12" fill="#fff1a1"/>
+</g>
+
+<!-- Clouds -->
+<g fill="#b2d3a0">
+  <rect x="105" y="145" width="52" height="12"/><rect x="125" y="133" width="32" height="12"/>
+  <rect x="155" y="145" width="42" height="12"/>
+  <rect x="420" y="180" width="55" height="12"/><rect x="440" y="168" width="30" height="12"/>
+  <rect x="470" y="180" width="30" height="12"/>
+</g>
+
+<!-- Distant rolling hills -->
+<path d="M0 300H95V276H150V260H235V278H300V248H390V266H470V286H550V260H650V280H730V252H810V274H900V410H0Z" fill="#31583b"/>
+<path d="M0 335H120V315H220V294H310V310H410V290H510V314H610V292H710V313H810V290H900V420H0Z" fill="#416d42"/>
+
+<!-- Pixel sunflowers -->
+<g class="pixel">
+  <rect x="112" y="240" width="12" height="112" fill="#426c36"/>
+  <rect x="100" y="226" width="36" height="12" fill="#f2c84d"/>
+  <rect x="88" y="238" width="60" height="12" fill="#f2c84d"/>
+  <rect x="100" y="250" width="36" height="12" fill="#f2c84d"/>
+  <rect x="112" y="238" width="12" height="24" fill="#7a4826"/>
+  <rect x="124" y="310" width="24" height="12" fill="#75a94c"/>
+  <rect x="148" y="298" width="12" height="12" fill="#75a94c"/>
+
+  <rect x="750" y="260" width="12" height="92" fill="#426c36"/>
+  <rect x="738" y="245" width="36" height="12" fill="#f2c84d"/>
+  <rect x="726" y="257" width="60" height="12" fill="#f2c84d"/>
+  <rect x="738" y="269" width="36" height="12" fill="#f2c84d"/>
+  <rect x="750" y="257" width="12" height="24" fill="#7a4826"/>
+  <rect x="762" y="320" width="24" height="12" fill="#75a94c"/>
+</g>
+
+<!-- Foreground landscape -->
+<path d="M0 370H90V355H180V370H280V345H370V365H470V350H560V368H660V342H760V360H900V739H0Z" fill="url(#ground)"/>
+<path d="M0 400H140V388H260V402H400V382H540V400H680V385H810V400H900" fill="none" stroke="#85a84e" stroke-width="5"/>
+
+<!-- Large pixel flower left -->
+<g class="pixel">
+  <rect x="75" y="335" width="12" height="100" fill="#46743b"/>
+  <rect x="63" y="310" width="36" height="12" fill="#e7b83e"/>
+  <rect x="51" y="322" width="60" height="12" fill="#e7b83e"/>
+  <rect x="63" y="334" width="36" height="12" fill="#e7b83e"/>
+  <rect x="75" y="322" width="12" height="24" fill="#704329"/>
+  <rect x="87" y="390" width="30" height="12" fill="#79a94e"/>
+  <rect x="117" y="378" width="12" height="12" fill="#79a94e"/>
+</g>
+
+<!-- Grass, flowers, stones -->
+<g class="pixel">
+  <path d="M20 470h8v-20h8v20h8v-12h8v12 M160 480h8v-22h8v22h8v-12h8v12 M300 470h8v-20h8v20h8v-12h8v12 M610 470h8v-24h8v24h8v-12h8v12 M820 480h8v-22h8v22h8v-12h8v12" fill="#9bc45a"/>
+  <rect x="210" y="430" width="12" height="6" fill="#e6d48b"/>
+  <rect x="430" y="450" width="18" height="8" fill="#8d9870"/>
+  <rect x="700" y="420" width="14" height="8" fill="#b1a77a"/>
+  <rect x="265" y="460" width="6" height="6" fill="#f1d65d"/>
+  <rect x="280" y="450" width="6" height="6" fill="#f1d65d"/>
+  <rect x="555" y="440" width="6" height="6" fill="#f1d65d"/>
+</g>
+
+<!-- Decorative divider -->
+<rect x="48" y="455" width="768" height="2" fill="#9fc56b"/>
+<rect x="48" y="460" width="768" height="1" fill="#d5e99a" opacity=".4"/>
+
+<text x="450" y="448" text-anchor="middle" font-family="monospace" font-size="12" fill="#e9edbd">THE STACK</text>
+
+<!-- Skill bars -->
+<g>
+  <text class="label" x="91" y="489">HTML</text>
+  <rect x="204" y="475" width="526" height="18" fill="#172b20"/>
+  <rect class="fill a" x="204" y="475" width="473.4" height="18" fill="url(#bar)"/>
+  <rect x="204" y="475" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="489">90%</text>
+
+  <text class="label" x="91" y="518">CSS</text>
+  <rect x="204" y="504" width="526" height="18" fill="#172b20"/>
+  <rect class="fill b" x="204" y="504" width="420.8" height="18" fill="url(#bar)"/>
+  <rect x="204" y="504" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="518">80%</text>
+
+  <text class="label" x="91" y="547">JavaScript</text>
+  <rect x="204" y="533" width="526" height="18" fill="#172b20"/>
+  <rect class="fill c" x="204" y="533" width="368.2" height="18" fill="url(#bar)"/>
+  <rect x="204" y="533" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="547">70%</text>
+
+  <text class="label" x="91" y="576">Vue</text>
+  <rect x="204" y="562" width="526" height="18" fill="#172b20"/>
+  <rect class="fill d" x="204" y="562" width="210.4" height="18" fill="url(#bar)"/>
+  <rect x="204" y="562" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="576">40%</text>
+
+  <text class="label" x="91" y="605">Git</text>
+  <rect x="204" y="591" width="526" height="18" fill="#172b20"/>
+  <rect class="fill e" x="204" y="591" width="315.6" height="18" fill="url(#bar)"/>
+  <rect x="204" y="591" width="526" height="18" fill="url(#segments)"/>
+  <text class="pct" x="774" y="605">60%</text>
+</g>
+
+<rect x="48" y="640" width="768" height="2" fill="#9fc56b"/>
+<text x="450" y="675" text-anchor="middle" font-family="monospace" font-size="12" fill="#c5dba0">ANDRIN BREM // SUMMER LEVEL</text>
+<text x="450" y="698" text-anchor="middle" font-family="monospace" font-size="9" fill="#829d70">INSERT COIN TO EXPLORE</text>
+<rect width="900" height="739" fill="url(#grid)" opacity=".22"/>
+<rect x="12" y="12" width="876" height="715" fill="none" stroke="#8dbb65" stroke-width="2"/>
+</svg>
+
