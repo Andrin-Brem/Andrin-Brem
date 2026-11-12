@@ -1,216 +1,368 @@
-
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="739" viewBox="0 0 900 739">
-<defs>
-  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-    <stop stop-color="#0b1510"/>
-    <stop offset="1" stop-color="#17291c"/>
-  </linearGradient>
-  <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
-    <stop stop-color="#426f4a"/>
-    <stop offset="1" stop-color="#1c452b"/>
-  </linearGradient>
-  <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
-    <stop stop-color="#347c43"/>
-    <stop offset="1" stop-color="#183b27"/>
-  </linearGradient>
-  <linearGradient id="barGreen" x1="0" y1="0" x2="1" y2="0">
-    <stop stop-color="#245b35"/>
-    <stop offset=".55" stop-color="#42b85c"/>
-    <stop offset="1" stop-color="#b5ed9a"/>
-  </linearGradient>
-  <pattern id="pixels" width="5" height="5" patternUnits="userSpaceOnUse">
-    <path d="M0 0H5V5" fill="none" stroke="#07130c" stroke-width=".8" opacity=".65"/>
-  </pattern>
-  <pattern id="barGrid" width="7" height="18" patternUnits="userSpaceOnUse">
-    <rect x="4" width="3" height="18" fill="#0c1712"/>
-  </pattern>
-  <style>
-    @keyframes reveal {
-      from { transform:scaleX(0); }
-      to { transform:scaleX(1); }
-    }
-    .fill {
-      transform-box:fill-box;
-      transform-origin:left center;
-      animation:reveal 1.4s cubic-bezier(.2,.8,.2,1) both;
-    }
-    .html {animation-delay:.2s}
-    .css {animation-delay:.65s}
-    .js {animation-delay:1.1s}
-    .vue {animation-delay:1.55s}
-    .git {animation-delay:2s}
-    .label {font:13px monospace;fill:#e0eee3}
-    .percent {font:12px monospace;fill:#8ee6a0}
-  </style>
-</defs>
+  <defs>
+    <!-- Himmel -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1510"/>
+      <stop offset=".6" stop-color="#0f1d15"/>
+      <stop offset="1" stop-color="#17291c"/>
+    </linearGradient>
 
-<!-- Hintergrund -->
-<rect width="900" height="739" fill="url(#sky)"/>
-<rect x="48" y="59" width="768" height="3" fill="#83bd8d"/>
+    <!-- Linien oben/unten -->
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#1c452b" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#42b85c"/>
+      <stop offset="1" stop-color="#b5ed9a"/>
+    </linearGradient>
 
-<!-- Pixelsterne -->
-<g fill="#a8d8ad">
-  <rect x="120" y="90" width="4" height="4"/>
-  <rect x="205" y="123" width="3" height="3"/>
-  <rect x="290" y="83" width="5" height="5"/>
-  <rect x="499" y="95" width="4" height="4"/>
-  <rect x="563" y="91" width="5" height="5"/>
-  <rect x="649" y="78" width="4" height="4"/>
-  <rect x="694" y="110" width="3" height="3"/>
-  <rect x="160" y="151" width="4" height="4"/>
-  <rect x="800" y="141" width="3" height="3"/>
-  <rect x="103" y="169" width="4" height="4"/>
-  <rect x="583" y="128" width="3" height="3"/>
-</g>
+    <!-- Huegel + Wiese -->
+    <linearGradient id="hill" gradientUnits="userSpaceOnUse" x1="0" y1="250" x2="0" y2="390">
+      <stop offset="0" stop-color="#4a7d52"/>
+      <stop offset="1" stop-color="#1c452b"/>
+    </linearGradient>
+    <linearGradient id="meadow" gradientUnits="userSpaceOnUse" x1="0" y1="285" x2="0" y2="390">
+      <stop offset="0" stop-color="#347c43"/>
+      <stop offset="1" stop-color="#143222"/>
+    </linearGradient>
 
-<!-- Kleine Wolken -->
-<g fill="#203e29">
-  <path d="M238 126h12v-10h24v10h12v12h-48z"/>
-  <path d="M655 151h12v-10h24v10h12v12h-48z"/>
-</g>
+    <!-- Skill-Balken -->
+    <linearGradient id="barGreen" x1="0" x2="1">
+      <stop offset="0" stop-color="#245b35"/>
+      <stop offset=".55" stop-color="#42b85c"/>
+      <stop offset="1" stop-color="#b5ed9a"/>
+    </linearGradient>
+    <pattern id="seg" width="7" height="20" patternUnits="userSpaceOnUse">
+      <rect width="5" height="20" fill="#fff"/>
+    </pattern>
+    <mask id="segs" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="739">
+      <rect width="900" height="739" fill="url(#seg)"/>
+    </mask>
 
-<!-- Kleine sanfte Hügel -->
-<path d="M63 310 Q145 260 235 300 Q320 245 410 292 Q510 250 600 298 Q700 255 797 300 V390 H63Z"
-      fill="url(#hill)"/>
-<path d="M63 310 Q145 260 235 300 Q320 245 410 292 Q510 250 600 298 Q700 255 797 300 V390 H63Z"
-      fill="url(#pixels)"/>
+    <!-- Pixel-Raster -->
+    <pattern id="px" width="5" height="5" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#fff"/>
+    </pattern>
+    <mask id="pxMask" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="739">
+      <rect width="900" height="739" fill="url(#px)"/>
+    </mask>
+    <!-- Pixel-Raster fuer die Blumen (lokales Koordinatensystem) -->
+    <mask id="pxFlower" maskUnits="userSpaceOnUse" x="-120" y="-120" width="240" height="280">
+      <rect x="-120" y="-120" width="240" height="280" fill="url(#px)"/>
+    </mask>
 
-<!-- Hintere Wiese -->
-<path d="M63 330 Q180 295 290 325 Q410 290 520 325 Q670 285 797 325 V390 H63Z"
-      fill="url(#meadow)"/>
+    <!-- Mondsichel -->
+    <mask id="moonCut">
+      <rect width="900" height="739" fill="#fff"/>
+      <circle cx="779" cy="83" r="17" fill="#000"/>
+    </mask>
 
-<!-- Riesenblume links -->
-<g>
-  <path d="M190 278V386" stroke="#63bd72" stroke-width="12"/>
-  <path d="M190 342l-42 -20v-12l42 16 M190 355l42 -20v-12l-42 16"
-        fill="#4b9e5a" stroke="#4b9e5a" stroke-width="9"/>
-  <g fill="#72c982">
-    <rect x="166" y="172" width="48" height="48"/>
-    <rect x="118" y="220" width="48" height="48"/>
-    <rect x="214" y="220" width="48" height="48"/>
-    <rect x="166" y="268" width="48" height="48"/>
-    <rect x="130" y="184" width="36" height="36"/>
-    <rect x="214" y="184" width="36" height="36"/>
-    <rect x="130" y="268" width="36" height="36"/>
-    <rect x="214" y="268" width="36" height="36"/>
+    <!-- Bluetenblaetter einer Riesenblume -->
+    <g id="petals">
+      <rect x="-24" y="-72" width="48" height="48"/>
+      <rect x="-72" y="-24" width="48" height="48"/>
+      <rect x="24"  y="-24" width="48" height="48"/>
+      <rect x="-24" y="24"  width="48" height="48"/>
+      <rect x="-60" y="-60" width="36" height="36"/>
+      <rect x="24"  y="-60" width="36" height="36"/>
+      <rect x="-60" y="24"  width="36" height="36"/>
+      <rect x="24"  y="24"  width="36" height="36"/>
+    </g>
+    <!-- Lichtkanten auf den Bluetenblaettern -->
+    <g id="petalHi">
+      <rect x="-12" y="-64" width="24" height="24"/>
+      <rect x="-64" y="-12" width="24" height="24"/>
+      <rect x="40"  y="-12" width="24" height="24"/>
+      <rect x="-12" y="40"  width="24" height="24"/>
+    </g>
+
+    <!-- Kleine Pixelbluete -->
+    <g id="bud">
+      <rect x="-5"  y="-15" width="10" height="10"/>
+      <rect x="-15" y="-5"  width="10" height="10"/>
+      <rect x="5"   y="-5"  width="10" height="10"/>
+      <rect x="-5"  y="5"   width="10" height="10"/>
+    </g>
+
+    <style>
+      text { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; }
+
+      .star { animation: twinkle 4s ease-in-out infinite; }
+      @keyframes twinkle { 0%,100% { opacity: .2 } 50% { opacity: 1 } }
+
+      .moon { animation: glow 7s ease-in-out infinite; }
+      @keyframes glow { 0%,100% { opacity: .75 } 50% { opacity: 1 } }
+
+      .cloud { animation: drift 70s linear infinite; }
+      @keyframes drift { from { transform: translateX(-80px) } to { transform: translateX(980px) } }
+
+      .sway { transform-box: fill-box; transform-origin: 50% 100%;
+              animation: sway 6s ease-in-out infinite alternate; }
+      @keyframes sway { from { transform: rotate(-1.5deg) } to { transform: rotate(1.5deg) } }
+
+      .grass { transform-box: fill-box; transform-origin: 50% 100%;
+               animation: grass 3.5s ease-in-out infinite alternate; }
+      @keyframes grass { from { transform: skewX(-4deg) } to { transform: skewX(4deg) } }
+
+      .core { animation: pulse 3s ease-in-out infinite; }
+      @keyframes pulse { 0%,100% { opacity: .7 } 50% { opacity: 1 } }
+
+      .fly { fill: #d9f99d; animation: fly 5s ease-in-out infinite alternate; }
+      @keyframes fly {
+        0%   { transform: translate(0,0); opacity: .1 }
+        50%  { opacity: 1 }
+        100% { transform: translate(12px,-16px); opacity: .2 }
+      }
+
+      .seed { fill: #e0f7d8; opacity: 0; animation: rise 9s linear infinite; }
+      @keyframes rise {
+        0%   { transform: translate(0,0); opacity: 0 }
+        15%  { opacity: .9 }
+        50%  { transform: translate(14px,-90px) }
+        85%  { opacity: .5 }
+        100% { transform: translate(-6px,-190px); opacity: 0 }
+      }
+
+      .butterfly { animation: flutter 18s ease-in-out infinite alternate; }
+      @keyframes flutter {
+        0%   { transform: translate(0,0) }
+        20%  { transform: translate(130px,-35px) }
+        40%  { transform: translate(260px,15px) }
+        60%  { transform: translate(380px,-40px) }
+        80%  { transform: translate(500px,5px) }
+        100% { transform: translate(600px,-25px) }
+      }
+      .wing { transform-box: fill-box; animation: flap .35s ease-in-out infinite alternate; }
+      .wl { transform-origin: right center; }
+      .wr { transform-origin: left center; }
+      @keyframes flap { from { transform: scaleX(1) } to { transform: scaleX(.25) } }
+
+      .gust { font-size: 13px; opacity: 0; transform-box: fill-box; transform-origin: center;
+              animation: gust 14s linear infinite; }
+      @keyframes gust {
+        0%   { transform: translateX(0) rotate(0deg); opacity: 0 }
+        8%   { opacity: .9 }
+        92%  { opacity: .9 }
+        100% { transform: translateX(-740px) rotate(-540deg); opacity: 0 }
+      }
+
+      .title { fill: #86efac; font-size: 14px; font-weight: bold; letter-spacing: 2px; }
+      .label { fill: #e0eee3; font-size: 14px; }
+      .pct   { fill: #8ee6a0; font-size: 14px; text-anchor: end; }
+
+      .bar { transform-box: fill-box; transform-origin: left center;
+             animation: grow 1.4s cubic-bezier(.2,.8,.2,1) both; }
+      @keyframes grow { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+
+      .dot { fill: #5eaa70; font-size: 13px; text-anchor: middle; animation: twinkle 3s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="900" height="739" rx="12" fill="url(#sky)"/>
+  <rect x="40" y="28" width="820" height="4" fill="url(#line)"/>
+
+  <!-- Pixelsterne -->
+  <g fill="#a8d8ad">
+    <rect class="star" x="120" y="70"  width="4" height="4"/>
+    <rect class="star" x="205" y="113" width="3" height="3" style="animation-delay:-1.2s"/>
+    <rect class="star" x="290" y="63"  width="5" height="5" style="animation-delay:-2.6s"/>
+    <rect class="star" x="380" y="98"  width="3" height="3" style="animation-delay:-.7s"/>
+    <rect class="star" x="499" y="75"  width="4" height="4" style="animation-delay:-3.1s"/>
+    <rect class="star" x="563" y="111" width="5" height="5" style="animation-delay:-1.8s"/>
+    <rect class="star" x="640" y="62"  width="4" height="4" style="animation-delay:-2.2s"/>
+    <rect class="star" x="694" y="120" width="3" height="3" style="animation-delay:-.4s"/>
+    <rect class="star" x="160" y="151" width="4" height="4" style="animation-delay:-3.5s"/>
+    <rect class="star" x="830" y="150" width="3" height="3" style="animation-delay:-1.5s"/>
+    <rect class="star" x="80"  y="120" width="4" height="4" style="animation-delay:-2.9s"/>
+    <rect class="star" x="600" y="160" width="3" height="3" style="animation-delay:-.9s"/>
   </g>
-  <rect x="166" y="220" width="48" height="48" fill="#b5ed9a"/>
-  <rect x="178" y="232" width="24" height="24" fill="#e0f7d8"/>
-</g>
 
-<!-- Riesenblume Mitte -->
-<g>
-  <path d="M445 274V389" stroke="#63bd72" stroke-width="14"/>
-  <path d="M445 344l-48 -20v-12l48 16 M445 360l48 -20v-12l-48 16"
-        fill="#4b9e5a" stroke="#4b9e5a" stroke-width="10"/>
-  <g fill="#4fae68">
-    <rect x="415" y="125" width="60" height="60"/>
-    <rect x="355" y="185" width="60" height="60"/>
-    <rect x="475" y="185" width="60" height="60"/>
-    <rect x="415" y="245" width="60" height="60"/>
-    <rect x="367" y="137" width="48" height="48"/>
-    <rect x="475" y="137" width="48" height="48"/>
-    <rect x="367" y="245" width="48" height="48"/>
-    <rect x="475" y="245" width="48" height="48"/>
+  <!-- Mond in Pixeloptik -->
+  <g class="moon">
+    <circle cx="770" cy="90" r="44" fill="#86efac" opacity=".05"/>
+    <circle cx="770" cy="90" r="30" fill="#86efac" opacity=".08"/>
+    <g mask="url(#pxMask)">
+      <circle cx="770" cy="90" r="20" fill="#e0f7d8" mask="url(#moonCut)"/>
+    </g>
   </g>
-  <rect x="415" y="185" width="60" height="60" fill="#8fdb91"/>
-  <rect x="433" y="203" width="24" height="24" fill="#d8f5c8"/>
-</g>
 
-<!-- Riesenblume rechts -->
-<g>
-  <path d="M690 278V389" stroke="#63bd72" stroke-width="12"/>
-  <path d="M690 342l-42 -20v-12l42 16 M690 355l42 -20v-12l-42 16"
-        fill="#4b9e5a" stroke="#4b9e5a" stroke-width="9"/>
-  <g fill="#5cae70">
-    <rect x="666" y="172" width="48" height="48"/>
-    <rect x="618" y="220" width="48" height="48"/>
-    <rect x="714" y="220" width="48" height="48"/>
-    <rect x="666" y="268" width="48" height="48"/>
-    <rect x="630" y="184" width="36" height="36"/>
-    <rect x="714" y="184" width="36" height="36"/>
-    <rect x="630" y="268" width="36" height="36"/>
-    <rect x="714" y="268" width="36" height="36"/>
+  <!-- Pixelwolken (ziehen langsam vorbei) -->
+  <g fill="#203e29">
+    <g transform="translate(0,116)">
+      <path class="cloud" style="animation-delay:-20s" d="M0 10h12v-10h24v10h12v12h-48z"/>
+    </g>
+    <g transform="translate(0,146)">
+      <path class="cloud" style="animation-delay:-55s; animation-duration:90s" d="M0 10h16v-10h32v10h16v12h-64z"/>
+    </g>
   </g>
-  <rect x="666" y="220" width="48" height="48" fill="#a5e5a0"/>
-  <rect x="678" y="232" width="24" height="24" fill="#e0f7d8"/>
-</g>
 
-<!-- Pixelgras -->
-<g fill="#4ade80">
-  <path d="M70 390v-35h8v20h8v-30h8v45z"/>
-  <path d="M110 390v-25h8v-20h8v28h8v-35h8v52z"/>
-  <path d="M270 390v-30h8v-25h8v30h8v-20h8v45z"/>
-  <path d="M340 390v-25h8v-35h8v30h8v-20h8v50z"/>
-  <path d="M535 390v-30h8v-25h8v30h8v-20h8v45z"/>
-  <path d="M600 390v-25h8v-35h8v30h8v-20h8v50z"/>
-  <path d="M755 390v-30h8v-25h8v30h8v-20h8v45z"/>
-</g>
+  <!-- Huegel + Wiese im Pixel-Stil -->
+  <g mask="url(#pxMask)">
+    <path fill="url(#hill)" opacity=".85"
+      d="M60 310 Q150 258 245 300 Q335 245 430 292 Q530 250 625 298 Q730 255 840 300 V390 H60Z"/>
+    <path fill="url(#meadow)"
+      d="M60 330 Q185 295 300 325 Q420 290 540 325 Q690 285 840 325 V390 H60Z"/>
+  </g>
+  <!-- Kammlinie -->
+  <path fill="none" stroke="#b5ed9a" stroke-opacity=".4" stroke-width="1.5" stroke-dasharray="3 3"
+    d="M60 310 Q150 258 245 300 Q335 245 430 292 Q530 250 625 298 Q730 255 840 300"/>
 
-<!-- Kleine Pixelblüten -->
-<g fill="#a5e5a0">
-  <rect x="90" y="320" width="10" height="10"/>
-  <rect x="80" y="330" width="10" height="10"/>
-  <rect x="100" y="330" width="10" height="10"/>
-  <rect x="90" y="340" width="10" height="10"/>
+  <!-- Riesenblume links -->
+  <g transform="translate(200,244)">
+    <g class="sway">
+      <path d="M0 34V146" stroke="#63bd72" stroke-width="12"/>
+      <path d="M0 98l-42-20v-12l42 16z M0 111l42-20v-12l-42 16z"
+            fill="#4b9e5a" stroke="#4b9e5a" stroke-width="6"/>
+      <circle class="core" r="58" fill="#8fdb91" opacity=".07"/>
+      <g mask="url(#pxFlower)">
+        <use href="#petals" fill="#72c982"/>
+        <use href="#petalHi" fill="#b5ed9a" opacity=".35"/>
+        <rect x="-24" y="-24" width="48" height="48" fill="#b5ed9a"/>
+        <rect class="core" x="-12" y="-12" width="24" height="24" fill="#e0f7d8"/>
+      </g>
+    </g>
+  </g>
 
-  <rect x="300" y="315" width="10" height="10"/>
-  <rect x="290" y="325" width="10" height="10"/>
-  <rect x="310" y="325" width="10" height="10"/>
-  <rect x="300" y="335" width="10" height="10"/>
+  <!-- Riesenblume Mitte -->
+  <g transform="translate(450,215) scale(1.25)">
+    <g class="sway" style="animation-delay:-2s; animation-duration:7s">
+      <path d="M0 30V140" stroke="#63bd72" stroke-width="11"/>
+      <path d="M0 98l-42-20v-12l42 16z M0 111l42-20v-12l-42 16z"
+            fill="#4b9e5a" stroke="#4b9e5a" stroke-width="6"/>
+      <circle class="core" r="58" fill="#8fdb91" opacity=".08" style="animation-delay:-1s"/>
+      <g mask="url(#pxFlower)">
+        <use href="#petals" fill="#4fae68"/>
+        <use href="#petalHi" fill="#a5e5a0" opacity=".35"/>
+        <rect x="-24" y="-24" width="48" height="48" fill="#8fdb91"/>
+        <rect class="core" x="-12" y="-12" width="24" height="24" fill="#d8f5c8" style="animation-delay:-1s"/>
+      </g>
+    </g>
+  </g>
 
-  <rect x="565" y="315" width="10" height="10"/>
-  <rect x="555" y="325" width="10" height="10"/>
-  <rect x="575" y="325" width="10" height="10"/>
-  <rect x="565" y="335" width="10" height="10"/>
+  <!-- Riesenblume rechts -->
+  <g transform="translate(700,244)">
+    <g class="sway" style="animation-delay:-4s; animation-duration:5.5s">
+      <path d="M0 34V146" stroke="#63bd72" stroke-width="12"/>
+      <path d="M0 98l-42-20v-12l42 16z M0 111l42-20v-12l-42 16z"
+            fill="#4b9e5a" stroke="#4b9e5a" stroke-width="6"/>
+      <circle class="core" r="58" fill="#8fdb91" opacity=".07" style="animation-delay:-2s"/>
+      <g mask="url(#pxFlower)">
+        <use href="#petals" fill="#5cae70"/>
+        <use href="#petalHi" fill="#b5ed9a" opacity=".3"/>
+        <rect x="-24" y="-24" width="48" height="48" fill="#a5e5a0"/>
+        <rect class="core" x="-12" y="-12" width="24" height="24" fill="#e0f7d8" style="animation-delay:-2s"/>
+      </g>
+    </g>
+  </g>
 
-  <rect x="775" y="320" width="10" height="10"/>
-  <rect x="765" y="330" width="10" height="10"/>
-  <rect x="785" y="330" width="10" height="10"/>
-  <rect x="775" y="340" width="10" height="10"/>
-</g>
+  <!-- Pixelgras (wiegt im Wind) -->
+  <g fill="#4ade80">
+    <path class="grass" d="M68 390v-35h8v20h8v-30h8v45z"/>
+    <path class="grass" style="animation-delay:-.8s" d="M112 390v-25h8v-20h8v28h8v-35h8v52z"/>
+    <path class="grass" style="animation-delay:-1.6s" d="M278 390v-30h8v-25h8v30h8v-20h8v45z"/>
+    <path class="grass" style="animation-delay:-.4s" d="M350 390v-25h8v-35h8v30h8v-20h8v50z"/>
+    <path class="grass" style="animation-delay:-2.2s" d="M548 390v-30h8v-25h8v30h8v-20h8v45z"/>
+    <path class="grass" style="animation-delay:-1.2s" d="M612 390v-25h8v-35h8v30h8v-20h8v50z"/>
+    <path class="grass" style="animation-delay:-2.8s" d="M760 390v-30h8v-25h8v30h8v-20h8v45z"/>
+    <path class="grass" style="animation-delay:-.2s" d="M806 390v-25h8v-35h8v30h8v-20h8v50z"/>
+  </g>
 
-<path d="M63 390H797" stroke="#426f4a"/>
+  <!-- Kleine Pixelblueten -->
+  <g fill="#a5e5a0">
+    <use class="core" href="#bud" x="95"  y="335"/>
+    <use class="core" href="#bud" x="315" y="330" style="animation-delay:-1s"/>
+    <use class="core" href="#bud" x="580" y="330" style="animation-delay:-2s"/>
+    <use class="core" href="#bud" x="795" y="335" style="animation-delay:-1.5s"/>
+  </g>
+  <g fill="#e0f7d8">
+    <rect x="90"  y="330" width="10" height="10"/>
+    <rect x="310" y="325" width="10" height="10"/>
+    <rect x="575" y="325" width="10" height="10"/>
+    <rect x="790" y="330" width="10" height="10"/>
+  </g>
 
-<!-- Trennlinie -->
-<path d="M63 415H797" stroke="#234a30" stroke-dasharray="3 6"/>
+  <!-- Gluehwuermchen -->
+  <rect class="fly" x="160" y="330" width="3" height="3"/>
+  <rect class="fly" x="300" y="280" width="3" height="3" style="animation-delay:-1.5s"/>
+  <rect class="fly" x="400" y="360" width="3" height="3" style="animation-delay:-3s"/>
+  <rect class="fly" x="560" y="300" width="3" height="3" style="animation-delay:-2s"/>
+  <rect class="fly" x="640" y="370" width="3" height="3" style="animation-delay:-4s"/>
+  <rect class="fly" x="810" y="280" width="3" height="3" style="animation-delay:-.8s"/>
 
-<!-- Skills -->
-<text x="91" y="451" fill="#86efac" font-family="monospace"
-      font-size="13" font-weight="bold" letter-spacing="2">the stack</text>
-<path d="M178 447H797" stroke="#234a30" stroke-dasharray="3 6"/>
+  <!-- Aufsteigende Pollen -->
+  <rect class="seed" x="200" y="240" width="3" height="3"/>
+  <rect class="seed" x="450" y="210" width="3" height="3" style="animation-delay:-3s; animation-duration:11s"/>
+  <rect class="seed" x="700" y="240" width="3" height="3" style="animation-delay:-6s"/>
+  <rect class="seed" x="130" y="350" width="2" height="2" style="animation-delay:-1.5s; animation-duration:10s"/>
+  <rect class="seed" x="330" y="340" width="2" height="2" style="animation-delay:-4.5s"/>
+  <rect class="seed" x="590" y="345" width="2" height="2" style="animation-delay:-7.5s; animation-duration:12s"/>
+  <rect class="seed" x="790" y="350" width="2" height="2" style="animation-delay:-2.5s"/>
 
-<text class="label" x="91" y="489">HTML</text>
-<rect x="204" y="475" width="526" height="18" fill="#17251e"/>
-<rect class="fill html" x="204" y="475" width="473.4" height="18" fill="url(#barGreen)"/>
-<rect x="204" y="475" width="526" height="18" fill="url(#barGrid)"/>
-<text class="percent" x="774" y="489">90%</text>
+  <!-- Pixel-Schmetterling -->
+  <g transform="translate(110,190)">
+    <g class="butterfly">
+      <g class="wing wl" fill="#b5ed9a">
+        <rect x="-11" y="-8" width="9" height="8"/>
+        <rect x="-9"  y="0"  width="7" height="6"/>
+      </g>
+      <g class="wing wr" fill="#b5ed9a">
+        <rect x="2" y="-8" width="9" height="8"/>
+        <rect x="2" y="0"  width="7" height="6"/>
+      </g>
+      <rect x="-1.5" y="-7" width="3" height="13" fill="#e0f7d8"/>
+    </g>
+  </g>
 
-<text class="label" x="91" y="518">CSS</text>
-<rect x="204" y="504" width="526" height="18" fill="#17251e"/>
-<rect class="fill css" x="204" y="504" width="420.8" height="18" fill="url(#barGreen)"/>
-<rect x="204" y="504" width="526" height="18" fill="url(#barGrid)"/>
-<text class="percent" x="774" y="518">80%</text>
+  <!-- Boden -->
+  <path d="M45 390H855" stroke="#426f4a"/>
+  <path d="M60 416H840" stroke="#234a30" stroke-dasharray="3 6"/>
 
-<text class="label" x="91" y="547">JavaScript</text>
-<rect x="204" y="533" width="526" height="18" fill="#17251e"/>
-<rect class="fill js" x="204" y="533" width="368.2" height="18" fill="url(#barGreen)"/>
-<rect x="204" y="533" width="526" height="18" fill="url(#barGrid)"/>
-<text class="percent" x="774" y="547">70%</text>
+  <!-- Skills -->
+  <text class="title" x="90" y="452">the garden</text>
+  <path d="M200 448H800" stroke="#234a30" stroke-dasharray="3 6"/>
 
-<text class="label" x="91" y="576">Vue</text>
-<rect x="204" y="562" width="526" height="18" fill="#17251e"/>
-<rect class="fill vue" x="204" y="562" width="210.4" height="18" fill="url(#barGreen)"/>
-<rect x="204" y="562" width="526" height="18" fill="url(#barGrid)"/>
-<text class="percent" x="774" y="576">40%</text>
+  <text class="label" x="90" y="490">HTML</text>
+  <text class="label" x="90" y="519">CSS</text>
+  <text class="label" x="90" y="548">JavaScript</text>
+  <text class="label" x="90" y="577">Vue</text>
+  <text class="label" x="90" y="606">Git</text>
 
-<text class="label" x="91" y="605">Git</text>
-<rect x="204" y="591" width="526" height="18" fill="#17251e"/>
-<rect class="fill git" x="204" y="591" width="315.6" height="18" fill="url(#barGreen)"/>
-<rect x="204" y="591" width="526" height="18" fill="url(#barGrid)"/>
-<text class="percent" x="774" y="605">60%</text>
+  <g mask="url(#segs)">
+    <rect x="204" y="476" width="526" height="18" fill="#17251e"/>
+    <rect x="204" y="505" width="526" height="18" fill="#17251e"/>
+    <rect x="204" y="534" width="526" height="18" fill="#17251e"/>
+    <rect x="204" y="563" width="526" height="18" fill="#17251e"/>
+    <rect x="204" y="592" width="526" height="18" fill="#17251e"/>
+    <!-- width = 526 * Prozent -->
+    <rect class="bar" x="204" y="476" width="473.4" height="18" fill="url(#barGreen)" style="animation-delay:.2s"/>
+    <rect class="bar" x="204" y="505" width="420.8" height="18" fill="url(#barGreen)" style="animation-delay:.65s"/>
+    <rect class="bar" x="204" y="534" width="368.2" height="18" fill="url(#barGreen)" style="animation-delay:1.1s"/>
+    <rect class="bar" x="204" y="563" width="210.4" height="18" fill="url(#barGreen)" style="animation-delay:1.55s"/>
+    <rect class="bar" x="204" y="592" width="315.6" height="18" fill="url(#barGreen)" style="animation-delay:2s"/>
+  </g>
 
-<path d="M63 625H797" stroke="#426f4a"/>
-<text x="340" y="663" fill="#5eaa70" font-family="monospace" font-size="12">✦  ·  ✦  ·  ✦  ·  ✦</text>
-<rect x="48" y="688" width="768" height="3" fill="#83bd8d"/>
+  <text class="pct" x="800" y="490">90%</text>
+  <text class="pct" x="800" y="519">80%</text>
+  <text class="pct" x="800" y="548">70%</text>
+  <text class="pct" x="800" y="577">40%</text>
+  <text class="pct" x="800" y="606">60%</text>
+
+  <!-- Vom Wind verwehte Blueten -->
+  <text class="gust" x="820" y="630" fill="#a5e5a0">&#10047;</text>
+  <text class="gust" x="820" y="633" fill="#4ade80" style="animation-delay:-5s; animation-duration:16s">&#10047;</text>
+  <text class="gust" x="820" y="628" fill="#86efac" style="animation-delay:-10s; animation-duration:13s">&#10047;</text>
+
+  <path d="M45 642H855" stroke="#426f4a"/>
+
+  <!-- Deko unten -->
+  <text class="dot" x="362" y="680">&#10047;</text>
+  <text class="dot" x="384" y="680" style="animation-delay:-.3s">&#183;</text>
+  <text class="dot" x="406" y="680" style="animation-delay:-.6s">&#10022;</text>
+  <text class="dot" x="428" y="680" style="animation-delay:-.9s">&#183;</text>
+  <text class="dot" x="450" y="680" style="animation-delay:-1.2s">&#10047;</text>
+  <text class="dot" x="472" y="680" style="animation-delay:-1.5s">&#183;</text>
+  <text class="dot" x="494" y="680" style="animation-delay:-1.8s">&#10022;</text>
+  <text class="dot" x="516" y="680" style="animation-delay:-2.1s">&#183;</text>
+  <text class="dot" x="538" y="680" style="animation-delay:-2.4s">&#10047;</text>
+
+  <rect x="40" y="708" width="820" height="4" fill="url(#line)"/>
 </svg>
