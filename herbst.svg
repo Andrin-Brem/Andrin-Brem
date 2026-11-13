@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="720" viewBox="0 0 900 720">
   <defs>
-    <!-- Hintergrund: dunkel oben, warmes Leuchten am Horizont -->
+    <!-- Hintergrund: Sonnenuntergang -->
     <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="720">
-      <stop offset="0"   stop-color="#0a0c13"/>
-      <stop offset=".25" stop-color="#140e12"/>
-      <stop offset=".4"  stop-color="#2a140c"/>
-      <stop offset=".5"  stop-color="#4a2210"/>
+      <stop offset="0"   stop-color="#0d0a14"/>
+      <stop offset=".18" stop-color="#1e1020"/>
+      <stop offset=".3"  stop-color="#3a1620"/>
+      <stop offset=".37" stop-color="#7a2a14"/>
+      <stop offset=".41" stop-color="#d9692a"/>
+      <stop offset=".44" stop-color="#3a1a0e"/>
       <stop offset=".6"  stop-color="#0d1117"/>
       <stop offset="1"   stop-color="#0d1117"/>
     </linearGradient>
@@ -23,117 +25,45 @@
       <rect width="900" height="720" fill="url(#seg)"/>
     </mask>
 
-    <!-- Pixel-Raster fuer den Mond -->
-    <pattern id="px" width="5" height="5" patternUnits="userSpaceOnUse">
-      <rect width="4" height="4" fill="#fff"/>
-    </pattern>
-    <mask id="pxMask" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="720">
-      <rect width="900" height="720" fill="url(#px)"/>
+    <!-- Sonne mit Retro-Streifen -->
+    <linearGradient id="sun" gradientUnits="userSpaceOnUse" x1="0" y1="250" x2="0" y2="300">
+      <stop offset="0" stop-color="#ffe09a"/>
+      <stop offset="1" stop-color="#e0702c"/>
+    </linearGradient>
+    <mask id="sunCut" maskUnits="userSpaceOnUse" x="0" y="0" width="900" height="720">
+      <rect width="900" height="720" fill="#fff"/>
+      <rect x="560" y="262" width="160" height="2" fill="#000"/>
+      <rect x="560" y="270" width="160" height="3" fill="#000"/>
+      <rect x="560" y="279" width="160" height="4" fill="#000"/>
+      <rect x="560" y="288" width="160" height="5" fill="#000"/>
     </mask>
 
-    <!-- Erntemond -->
-    <radialGradient id="moon" cx=".4" cy=".4" r=".6">
-      <stop offset="0" stop-color="#ffe7b0"/>
-      <stop offset=".7" stop-color="#f5b14c"/>
-      <stop offset="1" stop-color="#d9692a"/>
-    </radialGradient>
+    <!-- Ahornblatt -->
+    <path id="maple" d="M0 -7 L1.5 -3.5 L4 -4.5 L3 -1 L6.5 -1.5 L4.5 1.5 L5.5 2.5 L1 2.5 L1 6 L-1 6 L-1 2.5 L-5.5 2.5 L-4.5 1.5 L-6.5 -1.5 L-3 -1 L-4 -4.5 L-1.5 -3.5Z"/>
 
-    <!-- Dither-Muster fuer Retro-Look -->
-    <pattern id="dither" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="2" height="2" fill="#000" fill-opacity=".2"/>
-      <rect x="2" y="2" width="2" height="2" fill="#000" fill-opacity=".2"/>
-    </pattern>
-
-    <!-- Zaun als Muster -->
-    <pattern id="fence" x="50" y="392" width="40" height="28" patternUnits="userSpaceOnUse">
-      <rect y="7"  width="40" height="4" fill="#4a2a18"/>
-      <rect y="17" width="40" height="4" fill="#4a2a18"/>
-      <rect width="6" height="28" fill="#6e4128"/>
-      <rect width="6" height="2"  fill="#a0623a"/>
-    </pattern>
-
-    <!-- Baumkrone im 8-Bit-Stil: Ebenen (Mitte = 0,0) -->
-    <g id="cBase">
-      <rect x="-16" y="-48" width="32" height="8"/>
-      <rect x="-32" y="-40" width="64" height="8"/>
-      <rect x="-40" y="-32" width="80" height="8"/>
-      <rect x="-48" y="-24" width="96" height="32"/>
-      <rect x="-40" y="8"   width="80" height="8"/>
-      <rect x="-32" y="16"  width="64" height="8"/>
-      <rect x="-16" y="24"  width="32" height="8"/>
-      <rect x="-54" y="-8"  width="4"  height="4"/>
-      <rect x="50"  y="-18" width="4"  height="4"/>
-      <rect x="-22" y="-54" width="4"  height="4"/>
-    </g>
-    <g id="cLight">
-      <rect x="-24" y="-40" width="40" height="8"/>
-      <rect x="-32" y="-32" width="56" height="8"/>
-      <rect x="-40" y="-24" width="64" height="24"/>
-      <rect x="-32" y="0"   width="40" height="8"/>
-    </g>
-    <g id="cCore">
-      <rect x="-24" y="-32" width="24" height="8"/>
-      <rect x="-32" y="-24" width="32" height="16"/>
-    </g>
-    <g id="cShade">
-      <rect x="8"  y="8"   width="32" height="8"/>
-      <rect x="0"  y="16"  width="32" height="8"/>
-      <rect x="32" y="-8"  width="16" height="16"/>
-      <rect x="-8" y="24"  width="24" height="8"/>
-    </g>
-
-    <!-- Baum gold (Ursprung = Fuss) -->
-    <g id="treeGold">
-      <rect x="-3"  y="-110" width="6"  height="110" fill="#5a3420"/>
-      <rect x="-12" y="-104" width="9"  height="4"   fill="#5a3420"/>
-      <rect x="3"   y="-96"  width="10" height="4"   fill="#5a3420"/>
-      <g transform="translate(0,-140)">
-        <circle r="72" fill="#f0883e" opacity=".07"/>
-        <use href="#cBase"  fill="#d9692a"/>
-        <use href="#cLight" fill="#f0a040"/>
-        <use href="#cCore"  fill="#ffe09a"/>
-        <use href="#cShade" fill="#8a3212"/>
-        <use href="#cBase"  fill="url(#dither)"/>
+    <!-- Heissluftballon (Ursprung = Mitte) -->
+    <g id="balloon">
+      <path d="M0 -38 C22 -38 30 -20 26 -4 C22 10 10 18 6 24 L-6 24 C-10 18 -22 10 -26 -4 C-30 -20 -22 -38 0 -38Z"/>
+      <path d="M0 -38 C10 -38 12 -10 6 24 L-6 24 C-12 -10 -10 -38 0 -38Z" fill="#ffe09a"/>
+      <path d="M-25 -8 Q0 -2 25 -8" fill="none" stroke="#8a3212" stroke-width="2"/>
+      <g stroke="#6e4128" stroke-width="1">
+        <line x1="-6" y1="24" x2="-5" y2="32"/>
+        <line x1="6"  y1="24" x2="5"  y2="32"/>
       </g>
+      <circle class="flicker" cx="0" cy="28" r="2" fill="#ffd27a"/>
+      <rect x="-6" y="32" width="12" height="8" fill="#6e4128"/>
+      <rect x="-6" y="32" width="12" height="2" fill="#a0623a"/>
     </g>
-    <!-- Baum rot -->
-    <g id="treeRed">
-      <rect x="-3"  y="-110" width="6"  height="110" fill="#5a3420"/>
-      <rect x="-12" y="-100" width="9"  height="4"   fill="#5a3420"/>
-      <rect x="3"   y="-92"  width="10" height="4"   fill="#5a3420"/>
-      <g transform="translate(0,-140)">
-        <circle r="72" fill="#c2421a" opacity=".07"/>
-        <use href="#cBase"  fill="#b23a16"/>
-        <use href="#cLight" fill="#e8703a"/>
-        <use href="#cCore"  fill="#ffb07a"/>
-        <use href="#cShade" fill="#5e1c0c"/>
-        <use href="#cBase"  fill="url(#dither)"/>
+
+    <!-- Windmuehlen-Fluegel -->
+    <g id="blade">
+      <rect x="-2" y="-40" width="4" height="38" fill="#a0623a"/>
+      <rect x="2"  y="-38" width="6" height="30" fill="#c9963a" opacity=".85"/>
+      <g stroke="#6e4128" stroke-width=".8">
+        <line x1="2" y1="-30" x2="8" y2="-30"/>
+        <line x1="2" y1="-22" x2="8" y2="-22"/>
+        <line x1="2" y1="-14" x2="8" y2="-14"/>
       </g>
-    </g>
-
-    <!-- Heuballen (Ursprung = unten links) -->
-    <g id="hay">
-      <rect x="0"  y="-18" width="30" height="18" fill="#c9963a"/>
-      <rect x="0"  y="-18" width="30" height="3"  fill="#e8c060"/>
-      <rect x="9"  y="-18" width="2"  height="18" fill="#a87628"/>
-      <rect x="20" y="-18" width="2"  height="18" fill="#a87628"/>
-      <rect x="4"  y="-21" width="2"  height="3"  fill="#e8c060"/>
-      <rect x="24" y="-21" width="2"  height="3"  fill="#e8c060"/>
-    </g>
-
-    <!-- Kuerbis ohne Gesicht -->
-    <g id="pumpkin">
-      <rect x="-10" y="-14" width="20" height="14" fill="#d9692a"/>
-      <rect x="-13" y="-11" width="26" height="8"  fill="#d9692a"/>
-      <rect x="-5"  y="-14" width="2"  height="14" fill="#b5541f"/>
-      <rect x="3"   y="-14" width="2"  height="14" fill="#b5541f"/>
-      <rect x="-1"  y="-18" width="3"  height="4"  fill="#4f6b3f"/>
-    </g>
-
-    <!-- Funkelstern -->
-    <g id="spark">
-      <rect x="-1" y="-4" width="2" height="8"/>
-      <rect x="-4" y="-1" width="8" height="2"/>
     </g>
 
     <style>
@@ -141,50 +71,67 @@
       .pixel { shape-rendering: crispEdges; }
 
       .star { animation: twinkle 4s ease-in-out infinite; }
-      @keyframes twinkle { 0%,100% { opacity: .15 } 50% { opacity: 1 } }
+      @keyframes twinkle { 0%,100% { opacity: .1 } 50% { opacity: .85 } }
 
-      .moon { animation: glow 7s ease-in-out infinite; }
-      @keyframes glow { 0%,100% { opacity: .8 } 50% { opacity: 1 } }
+      .sunglow { animation: glow 6s ease-in-out infinite; }
+      @keyframes glow { 0%,100% { opacity: .7 } 50% { opacity: 1 } }
 
-      .wind { stroke-dasharray: 60 600; animation: wind 9s linear infinite; }
-      @keyframes wind { from { stroke-dashoffset: 660 } to { stroke-dashoffset: -660 } }
+      .drift { animation: drift 18s ease-in-out infinite alternate; }
+      @keyframes drift { from { transform: translateX(-25px) } to { transform: translateX(25px) } }
 
-      .fog { animation: fog 20s ease-in-out infinite alternate; }
-      @keyframes fog { from { transform: translateX(-30px) } to { transform: translateX(30px) } }
+      .float { animation: float 16s ease-in-out infinite alternate; }
+      @keyframes float { from { transform: translate(0,0) } to { transform: translate(60px,-28px) } }
+
+      .flicker { animation: flicker 1.6s steps(2) infinite; }
+      @keyframes flicker { 0%,100% { opacity: 1 } 40% { opacity: .5 } 70% { opacity: .85 } }
+
+      .blades { transform-box: fill-box; transform-origin: center; animation: spin 9s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg) } }
 
       .sway { transform-box: fill-box; transform-origin: 50% 100%;
               animation: sway 7s ease-in-out infinite alternate; }
       @keyframes sway { from { transform: rotate(-1deg) } to { transform: rotate(1deg) } }
 
-      .flicker { animation: flicker 2.2s steps(2) infinite; }
-      @keyframes flicker { 0%,100% { opacity: 1 } 30% { opacity: .6 } 60% { opacity: .9 } }
+      .swing { transform-box: fill-box; transform-origin: 50% 0;
+               animation: swing 3.5s ease-in-out infinite alternate; }
+      @keyframes swing { from { transform: rotate(-9deg) } to { transform: rotate(9deg) } }
 
-      .tail { transform-box: fill-box; transform-origin: 0% 100%;
-              animation: tail 2.8s ease-in-out infinite alternate; }
-      @keyframes tail { from { transform: rotate(-6deg) } to { transform: rotate(10deg) } }
+      .sqtail { transform-box: fill-box; transform-origin: 0% 100%;
+                animation: sqtail 1.8s ease-in-out infinite alternate; }
+      @keyframes sqtail { from { transform: rotate(-8deg) } to { transform: rotate(10deg) } }
+      .nibble { transform-box: fill-box; transform-origin: 50% 100%;
+                animation: nibble 1.2s ease-in-out infinite; }
+      @keyframes nibble { 0%,60%,100% { transform: translateY(0) } 70%,90% { transform: translateY(1.5px) } }
+
       .eye { transform-box: fill-box; transform-origin: center; animation: blink 5s infinite; }
       @keyframes blink { 0%,90%,100% { transform: scaleY(1) } 93% { transform: scaleY(.1) } }
 
-      .fly { fill: #ffd27a; animation: fly 5s ease-in-out infinite alternate; }
-      @keyframes fly {
-        0%   { transform: translate(0,0); opacity: .1 }
-        50%  { opacity: 1 }
-        100% { transform: translate(12px,-18px); opacity: .2 }
-      }
+      .crow { transform-box: fill-box; transform-origin: 50% 100%;
+              animation: crow 4s ease-in-out infinite; }
+      @keyframes crow { 0%,50%,100% { transform: rotate(0) } 60%,80% { transform: rotate(-14deg) } }
 
-      .leaf { opacity: 0; transform-box: fill-box; transform-origin: center;
-              animation: leaf 12s linear infinite; }
-      @keyframes leaf {
+      .fall { opacity: 0; transform-box: fill-box; transform-origin: center;
+              animation: fall 12s linear infinite; }
+      @keyframes fall {
         0%   { transform: translate(0,0) rotate(0deg); opacity: 0 }
         10%  { opacity: .95 }
-        35%  { transform: translate(-24px,95px) rotate(150deg) }
-        65%  { transform: translate(16px,190px) rotate(290deg) }
+        30%  { transform: translate(-30px,90px) rotate(140deg) }
+        65%  { transform: translate(20px,190px) rotate(280deg) }
         90%  { opacity: .7 }
-        100% { transform: translate(-8px,270px) rotate(420deg); opacity: 0 }
+        100% { transform: translate(-10px,280px) rotate(400deg); opacity: 0 }
+      }
+
+      .roll { opacity: 0; transform-box: fill-box; transform-origin: center;
+              animation: roll 13s linear infinite; }
+      @keyframes roll {
+        0%   { transform: translateX(0) rotate(0deg); opacity: 0 }
+        8%   { opacity: .9 }
+        92%  { opacity: .9 }
+        100% { transform: translateX(-720px) rotate(-720deg); opacity: 0 }
       }
 
       .head  { fill: #f0a040; font-size: 13px; letter-spacing: 2px; }
-      .meta  { fill: #6e4128; font-size: 12px; text-anchor: end; }
+      .meta  { fill: #8b5a3c; font-size: 12px; text-anchor: end; }
       .label { fill: #f0b060; font-size: 14px; }
       .pct   { fill: #d98a4a; font-size: 14px; text-anchor: end; }
 
@@ -195,168 +142,212 @@
     </style>
   </defs>
 
-  <!-- Hintergrund + gestrichelter Rahmen -->
-  <rect width="900" height="720" rx="14" fill="url(#bg)"/>
-  <rect x="12" y="12" width="876" height="696" rx="8" fill="none" stroke="#3d1e0a" stroke-dasharray="6 4"/>
+  <!-- Hintergrund + Rahmen -->
+  <rect x="1" y="1" width="898" height="718" rx="16" fill="url(#bg)" stroke="#8b5a3c" stroke-opacity=".5" stroke-width="2"/>
 
-  <!-- Sterne -->
-  <g fill="#f5c27a" class="pixel">
-    <use class="star" href="#spark" x="160" y="70"/>
-    <use class="star" href="#spark" x="620" y="56"  style="animation-delay:-2s"/>
-    <use class="star" href="#spark" x="805" y="120" style="animation-delay:-3.3s"/>
-    <rect class="star" x="80"  y="110" width="3" height="3" style="animation-delay:-1.2s"/>
-    <rect class="star" x="260" y="50"  width="2" height="2" style="animation-delay:-2.6s"/>
-    <rect class="star" x="340" y="120" width="3" height="3" style="animation-delay:-.5s"/>
-    <rect class="star" x="420" y="60"  width="2" height="2" style="animation-delay:-3s"/>
-    <rect class="star" x="520" y="100" width="3" height="3" style="animation-delay:-1.7s"/>
-    <rect class="star" x="700" y="80"  width="2" height="2" style="animation-delay:-.9s"/>
-    <rect class="star" x="850" y="60"  width="3" height="3" style="animation-delay:-3.7s"/>
+  <!-- Erste Abendsterne -->
+  <g fill="#f5c27a">
+    <circle class="star" cx="90"  cy="60"  r="1.2"/>
+    <circle class="star" cx="210" cy="95"  r="1"   style="animation-delay:-1.4s"/>
+    <circle class="star" cx="330" cy="50"  r="1.3" style="animation-delay:-2.7s"/>
+    <circle class="star" cx="470" cy="80"  r="1"   style="animation-delay:-.6s"/>
+    <circle class="star" cx="600" cy="45"  r="1.2" style="animation-delay:-3.2s"/>
+    <circle class="star" cx="720" cy="70"  r="1"   style="animation-delay:-1.9s"/>
+    <circle class="star" cx="840" cy="50"  r="1.3" style="animation-delay:-2.3s"/>
   </g>
 
-  <!-- Windboeen -->
-  <g fill="none" stroke="#f0b060" stroke-opacity=".3" stroke-width="2" stroke-linecap="round">
-    <path class="wind" d="M70 180 C150 150, 210 210, 290 180 S410 150, 470 175"/>
-    <path class="wind" style="animation-delay:-4.5s; animation-duration:11s"
-          d="M460 140 C540 110, 600 170, 680 140 S790 115, 840 135"/>
+  <!-- Untergehende Sonne -->
+  <g class="sunglow">
+    <circle cx="640" cy="300" r="110" fill="#f0883e" opacity=".07"/>
+    <circle cx="640" cy="300" r="80"  fill="#f0883e" opacity=".1"/>
+  </g>
+  <circle cx="640" cy="300" r="55" fill="url(#sun)" mask="url(#sunCut)"/>
+
+  <!-- Leuchtende Abendwolken -->
+  <g class="drift" fill="#f0a040">
+    <rect x="480" y="200" width="160" height="6" rx="3" opacity=".35"/>
+    <rect x="540" y="214" width="110" height="4" rx="2" opacity=".28"/>
+    <rect x="690" y="228" width="120" height="5" rx="2.5" opacity=".3"/>
+  </g>
+  <g class="drift" fill="#e07a2e" style="animation-delay:-7s; animation-duration:24s">
+    <rect x="110" y="170" width="140" height="5" rx="2.5" opacity=".2"/>
+    <rect x="160" y="182" width="90"  height="3" rx="1.5" opacity=".18"/>
+    <rect x="330" y="236" width="120" height="4" rx="2" opacity=".22"/>
   </g>
 
-  <!-- Grosser Erntemond, geht hinter den Huegeln auf -->
-  <g class="moon">
-    <circle cx="450" cy="292" r="120" fill="#f0883e" opacity=".05"/>
-    <circle cx="450" cy="292" r="88"  fill="#f0883e" opacity=".08"/>
-    <g mask="url(#pxMask)">
-      <circle cx="450" cy="292" r="60" fill="url(#moon)"/>
-      <circle cx="432" cy="272" r="9" fill="#e9a04a"/>
-      <circle cx="472" cy="300" r="7" fill="#e9a04a"/>
-      <circle cx="466" cy="262" r="4" fill="#e9a04a"/>
-      <circle cx="440" cy="314" r="5" fill="#e9a04a"/>
+  <!-- Heissluftballone -->
+  <g transform="translate(760,95) scale(.55)">
+    <g class="float" style="animation-delay:-6s; animation-duration:20s">
+      <use href="#balloon" fill="#c2421a"/>
+    </g>
+  </g>
+  <g transform="translate(400,140)">
+    <g class="float">
+      <use href="#balloon" fill="#e07a2e"/>
     </g>
   </g>
 
-  <!-- Treppen-Huegel -->
-  <g class="pixel">
-    <path fill="#4a2412"
-      d="M45 420V340H90V330H140V320H190V312H240V320H290V330H330V322H370V316H410V324H450V318H490V326H530V316H580V306H630V314H680V324H730V316H780V326H820V334H855V420Z"/>
-    <path fill="url(#dither)"
-      d="M45 420V340H90V330H140V320H190V312H240V320H290V330H330V322H370V316H410V324H450V318H490V326H530V316H580V306H630V314H680V324H730V316H780V326H820V334H855V420Z"/>
-    <path fill="#22110a"
-      d="M45 420V370H110V362H180V356H250V364H320V372H400V366H470V360H540V368H620V362H700V354H770V362H855V420Z"/>
-  </g>
+  <!-- Hintere Huegel -->
+  <path fill="#5a2614"
+    d="M40 430 V300 Q140 270 240 292 Q340 262 450 288 Q560 268 660 292 Q760 270 860 290 V430Z"/>
 
-  <!-- Nebel -->
-  <g fill="#f0b060">
-    <rect class="fog" x="80"  y="350" width="340" height="10" opacity=".06"/>
-    <rect class="fog" x="460" y="366" width="360" height="8"  opacity=".05" style="animation-delay:-9s; animation-duration:26s"/>
-  </g>
-
-  <!-- Baeume -->
-  <g class="pixel">
-    <g transform="translate(140,420)"><g class="sway"><use href="#treeGold"/></g></g>
-    <g transform="translate(265,420) scale(.68)"><g class="sway" style="animation-delay:-2s; animation-duration:6s"><use href="#treeRed"/></g></g>
-    <g transform="translate(560,420) scale(.55)"><g class="sway" style="animation-delay:-3s; animation-duration:5.5s"><use href="#treeRed"/></g></g>
-    <g transform="translate(660,420) scale(.95)"><g class="sway" style="animation-delay:-4s; animation-duration:8s"><use href="#treeGold"/></g></g>
-    <g transform="translate(790,420) scale(.75)"><g class="sway" style="animation-delay:-1s; animation-duration:6.5s"><use href="#treeRed"/></g></g>
-  </g>
-
-  <!-- Zaun -->
-  <rect class="pixel" x="50" y="392" width="806" height="28" fill="url(#fence)"/>
-
-  <!-- Laternen -->
-  <g class="pixel">
-    <circle class="flicker" cx="333" cy="354" r="30" fill="#ffb347" opacity=".1"/>
-    <rect x="331" y="360" width="4"  height="32" fill="#6e4128"/>
-    <rect x="324" y="343" width="18" height="4"  fill="#6e4128"/>
-    <rect x="326" y="347" width="14" height="14" fill="#3a1d0e"/>
-    <rect class="flicker" x="329" y="350" width="8" height="8" fill="#ffd27a"/>
-
-    <circle class="flicker" cx="573" cy="354" r="30" fill="#ffb347" opacity=".1" style="animation-delay:-1s"/>
-    <rect x="571" y="360" width="4"  height="32" fill="#6e4128"/>
-    <rect x="564" y="343" width="18" height="4"  fill="#6e4128"/>
-    <rect x="566" y="347" width="14" height="14" fill="#3a1d0e"/>
-    <rect class="flicker" x="569" y="350" width="8" height="8" fill="#ffd27a" style="animation-delay:-1s"/>
-  </g>
-
-  <!-- Boden -->
-  <rect x="45" y="420" width="810" height="14" fill="#1a0f08"/>
-  <line x1="45" y1="420" x2="855" y2="420" stroke="#8b5a3c"/>
-  <g class="pixel" opacity=".85">
-    <rect x="120" y="417" width="5" height="3" fill="#c2541a"/>
-    <rect x="300" y="417" width="4" height="3" fill="#f0a040"/>
-    <rect x="390" y="417" width="5" height="3" fill="#e8833a"/>
-    <rect x="520" y="417" width="4" height="3" fill="#c2541a"/>
-    <rect x="610" y="417" width="5" height="3" fill="#f0a040"/>
-    <rect x="760" y="417" width="4" height="3" fill="#e8833a"/>
-  </g>
-
-  <!-- Heu + Kuerbisse -->
-  <g class="pixel">
-    <use href="#hay" x="180" y="420"/>
-    <use href="#hay" x="705" y="420"/>
-    <use href="#pumpkin" x="228" y="420"/>
-    <use href="#pumpkin" transform="translate(690,420) scale(.75)"/>
-  </g>
-
-  <!-- Fuchs unter dem Mond -->
-  <g class="pixel" transform="translate(455,420)">
-    <g class="tail">
-      <rect x="6"  y="-8"  width="14" height="6" fill="#d9692a"/>
-      <rect x="14" y="-14" width="8"  height="8" fill="#d9692a"/>
-      <rect x="16" y="-18" width="6"  height="5" fill="#f5e6d0"/>
+  <!-- Windmuehle -->
+  <g transform="translate(250,318)">
+    <polygon points="-11,0 11,0 7,-50 -7,-50" fill="#5a3420"/>
+    <polygon points="-10,-50 10,-50 0,-62" fill="#3a1d0e"/>
+    <rect x="-3" y="-14" width="6" height="14" fill="#1a0f08"/>
+    <rect class="flicker" x="-2.5" y="-36" width="5" height="5" fill="#ffd27a"/>
+    <g transform="translate(0,-52)">
+      <g class="blades">
+        <use href="#blade"/>
+        <use href="#blade" transform="rotate(90)"/>
+        <use href="#blade" transform="rotate(180)"/>
+        <use href="#blade" transform="rotate(270)"/>
+      </g>
+      <circle r="3" fill="#3a1d0e"/>
     </g>
-    <rect x="-8"  y="-16" width="16" height="16" fill="#d9692a"/>
-    <rect x="-8"  y="-14" width="6"  height="12" fill="#f5e6d0"/>
-    <rect x="-14" y="-26" width="14" height="10" fill="#d9692a"/>
-    <rect x="-18" y="-21" width="5"  height="4"  fill="#f5e6d0"/>
-    <rect x="-19" y="-21" width="2"  height="2"  fill="#1a0f08"/>
-    <rect x="-13" y="-30" width="3"  height="4"  fill="#d9692a"/>
-    <rect x="-6"  y="-30" width="3"  height="4"  fill="#d9692a"/>
-    <rect x="-13" y="-30" width="3"  height="1"  fill="#1a0f08"/>
-    <rect x="-6"  y="-30" width="3"  height="1"  fill="#1a0f08"/>
-    <rect class="eye" x="-10" y="-23" width="2" height="2" fill="#1a0f08"/>
-    <rect x="-7"  y="-2"  width="3"  height="2"  fill="#3a1d0e"/>
-    <rect x="-1"  y="-2"  width="3"  height="2"  fill="#3a1d0e"/>
   </g>
 
-  <!-- Gluehwuermchen -->
-  <g class="pixel">
-    <rect class="fly" x="210" y="370" width="3" height="3"/>
-    <rect class="fly" x="380" y="330" width="3" height="3" style="animation-delay:-1.5s"/>
-    <rect class="fly" x="510" y="350" width="3" height="3" style="animation-delay:-3s"/>
-    <rect class="fly" x="610" y="300" width="2" height="2" style="animation-delay:-2s"/>
-    <rect class="fly" x="830" y="340" width="3" height="3" style="animation-delay:-4s"/>
-    <rect class="fly" x="95"  y="330" width="2" height="2" style="animation-delay:-.7s"/>
+  <!-- Mittlerer Huegel -->
+  <path fill="#3a1a0e"
+    d="M40 430 V330 Q170 296 300 318 Q440 292 580 320 Q720 300 860 322 V430Z"/>
+  <path fill="none" stroke="#c2541a" stroke-opacity=".35" stroke-width="1.2"
+    d="M40 330 Q170 296 300 318 Q440 292 580 320 Q720 300 860 322"/>
+
+  <!-- Weinberg -->
+  <g fill="none" stroke-linecap="round">
+    <g stroke="#5a2a14" stroke-width="2">
+      <path d="M330 340 Q470 318 620 346"/>
+      <path d="M330 354 Q470 332 620 360"/>
+      <path d="M330 368 Q470 346 620 374"/>
+      <path d="M330 382 Q470 360 620 388"/>
+    </g>
+    <g stroke="#c2541a" stroke-width="4" stroke-dasharray="1 13">
+      <path d="M330 337 Q470 315 620 343"/>
+      <path d="M330 351 Q470 329 620 357"/>
+      <path d="M330 365 Q470 343 620 371"/>
+      <path d="M330 379 Q470 357 620 385"/>
+    </g>
+    <g stroke="#7a2a3a" stroke-width="4" stroke-dasharray="1 9" stroke-dashoffset="5">
+      <path d="M330 342 Q470 320 620 348"/>
+      <path d="M330 356 Q470 334 620 362"/>
+      <path d="M330 370 Q470 348 620 376"/>
+      <path d="M330 384 Q470 362 620 390"/>
+    </g>
   </g>
 
-  <!-- Fallende Pixel-Blaetter -->
-  <g class="pixel">
-    <rect class="leaf" x="110" y="150" width="5" height="5" fill="#e8833a"/>
-    <rect class="leaf" x="190" y="170" width="4" height="4" fill="#f0a040" style="animation-delay:-3s; animation-duration:14s"/>
-    <rect class="leaf" x="270" y="140" width="6" height="4" fill="#c2541a" style="animation-delay:-6s"/>
-    <rect class="leaf" x="350" y="160" width="4" height="4" fill="#f0a040" style="animation-delay:-9s; animation-duration:11s"/>
-    <rect class="leaf" x="440" y="130" width="5" height="5" fill="#e8833a" style="animation-delay:-1.5s; animation-duration:13s"/>
-    <rect class="leaf" x="530" y="150" width="6" height="4" fill="#c2541a" style="animation-delay:-7.5s"/>
-    <rect class="leaf" x="600" y="170" width="4" height="4" fill="#f0a040" style="animation-delay:-4.5s; animation-duration:15s"/>
-    <rect class="leaf" x="680" y="140" width="5" height="5" fill="#e8833a" style="animation-delay:-10s"/>
-    <rect class="leaf" x="750" y="160" width="6" height="4" fill="#c2541a" style="animation-delay:-2.5s; animation-duration:12s"/>
-    <rect class="leaf" x="820" y="175" width="4" height="4" fill="#f0a040" style="animation-delay:-8.5s; animation-duration:14s"/>
+  <!-- Vogelscheuche mit Kraehe -->
+  <g>
+    <rect x="688" y="318" width="4" height="74" fill="#5a3420"/>
+    <rect x="668" y="334" width="44" height="3" fill="#5a3420"/>
+    <polygon points="676,334 704,334 700,362 680,362" fill="#a3400f"/>
+    <rect x="684" y="344" width="6" height="6" fill="#e07a2e"/>
+    <g stroke="#e8c060" stroke-width="1.2">
+      <line x1="668" y1="336" x2="663" y2="340"/>
+      <line x1="668" y1="336" x2="664" y2="333"/>
+      <line x1="684" y1="362" x2="682" y2="368"/>
+      <line x1="696" y1="362" x2="698" y2="368"/>
+    </g>
+    <circle cx="690" cy="324" r="8" fill="#e8c060"/>
+    <g stroke="#3a1d0e" stroke-width="1">
+      <path d="M686 322 l2 2 m0 -2 l-2 2"/>
+      <path d="M692 322 l2 2 m0 -2 l-2 2"/>
+      <path d="M686 328 Q690 330 694 328" fill="none"/>
+    </g>
+    <rect x="678" y="314" width="24" height="3" fill="#5a3420"/>
+    <polygon points="683,314 697,314 694,304 686,304" fill="#5a3420"/>
+    <rect x="684" y="311" width="12" height="2" fill="#c2541a"/>
+  </g>
+  <g transform="translate(706,331)">
+    <g class="crow">
+      <ellipse cx="0" cy="-3" rx="5.5" ry="3.5" fill="#1a0f08"/>
+      <circle cx="4" cy="-7" r="2.6" fill="#1a0f08"/>
+      <polygon points="6,-7.5 10,-6.5 6,-6" fill="#c9963a"/>
+      <polygon points="-5,-3 -10,-1 -5,-1" fill="#1a0f08"/>
+      <circle cx="4.5" cy="-7.5" r=".7" fill="#ffd27a"/>
+    </g>
   </g>
 
-  <!-- Skills: haengendes Holzschild -->
-  <g stroke="#8b5a3c" stroke-width="2" stroke-dasharray="2 2">
-    <line x1="110" y1="434" x2="110" y2="462"/>
-    <line x1="790" y1="434" x2="790" y2="462"/>
+  <!-- Ahornbaum mit Schaukel -->
+  <g class="sway">
+    <path fill="#3a1d0e"
+      d="M112 400 L116 300 Q100 280 86 270 L90 266 Q106 276 118 290 L120 250 L126 250 L126 290 Q140 272 158 264 L160 269 Q142 280 130 300 L134 400Z"/>
+    <g fill="#8a3212">
+      <circle cx="95"  cy="235" r="38"/>
+      <circle cx="152" cy="232" r="40"/>
+    </g>
+    <circle cx="122" cy="205" r="45" fill="#c2421a"/>
+    <circle cx="88"  cy="215" r="28" fill="#d9692a"/>
+    <circle cx="160" cy="210" r="30" fill="#e07a2e"/>
+    <circle cx="125" cy="180" r="30" fill="#f0a040"/>
+    <circle cx="110" cy="188" r="12" fill="#ffc66d" opacity=".6"/>
+    <circle cx="150" cy="200" r="8"  fill="#ffc66d" opacity=".4"/>
   </g>
-  <rect x="60" y="462" width="780" height="186" fill="#150d08" stroke="#5a3420" stroke-width="3"/>
-  <rect x="68" y="470" width="764" height="170" fill="none" stroke="#2a1810"/>
-  <g class="pixel" fill="#8b5a3c">
-    <rect x="66"  y="468" width="4" height="4"/>
-    <rect x="830" y="468" width="4" height="4"/>
-    <rect x="66"  y="638" width="4" height="4"/>
-    <rect x="830" y="638" width="4" height="4"/>
+  <g transform="translate(150,262)">
+    <g class="swing">
+      <g stroke="#a0623a" stroke-width="1.2">
+        <line x1="-9" y1="0" x2="-9" y2="90"/>
+        <line x1="9"  y1="0" x2="9"  y2="90"/>
+      </g>
+      <rect x="-13" y="90" width="26" height="4" fill="#6e4128"/>
+    </g>
   </g>
 
-  <text class="head" x="80" y="494"><tspan fill="#e07a2e">&#10087;</tspan> SEASON 03 // SKILLS</text>
-  <text class="meta" x="816" y="494">[ ripe 5/5 ]</text>
+  <!-- Vordergrund -->
+  <path fill="#22110a" d="M40 430 V392 Q240 376 450 390 Q660 374 860 392 V430Z"/>
+  <path fill="none" stroke="#8b5a3c" stroke-width="1.2" d="M40 392 Q240 376 450 390 Q660 374 860 392"/>
+
+  <!-- Eichhoernchen -->
+  <g transform="translate(205,392)">
+    <g class="sqtail">
+      <path d="M6 -4 Q18 -6 16 -18 Q14 -28 6 -26 Q12 -20 8 -12 Q6 -8 4 -6Z" fill="#c2541a"/>
+    </g>
+    <ellipse cx="0" cy="-6" rx="7" ry="6" fill="#a3400f"/>
+    <ellipse cx="-2" cy="-5" rx="3" ry="4" fill="#f0b060"/>
+    <g class="nibble">
+      <circle cx="-6" cy="-14" r="4.5" fill="#a3400f"/>
+      <polygon points="-7,-18 -5,-22 -4,-17" fill="#a3400f"/>
+      <circle class="eye" cx="-8" cy="-15" r=".9" fill="#1a0f08"/>
+      <ellipse cx="-11" cy="-9" rx="2.5" ry="3" fill="#c9963a"/>
+      <rect x="-13.5" y="-12.5" width="5" height="2" fill="#6e4128"/>
+    </g>
+  </g>
+
+  <!-- Laubhaufen mit Rechen -->
+  <line x1="340" y1="330" x2="328" y2="392" stroke="#8b5a3c" stroke-width="2.5"/>
+  <rect x="318" y="389" width="22" height="3" fill="#6e4128"/>
+  <ellipse cx="300" cy="394" rx="30" ry="12" fill="#a3400f"/>
+  <ellipse cx="292" cy="388" rx="18" ry="8"  fill="#c2541a"/>
+  <ellipse cx="310" cy="390" rx="14" ry="7"  fill="#e07a2e"/>
+  <use href="#maple" x="288" y="382" fill="#f0a040"/>
+  <use href="#maple" transform="translate(306,384) rotate(35)" fill="#ffc66d"/>
+  <use href="#maple" transform="translate(280,390) rotate(-40)" fill="#d9692a"/>
+
+  <!-- Fallende Ahornblaetter -->
+  <use class="fall" href="#maple" x="80"  y="120" fill="#e07a2e"/>
+  <use class="fall" href="#maple" x="160" y="150" fill="#f0a040" style="animation-delay:-3s; animation-duration:14s"/>
+  <use class="fall" href="#maple" x="240" y="90"  fill="#c2421a" style="animation-delay:-6s"/>
+  <use class="fall" href="#maple" x="330" y="130" fill="#ffc66d" style="animation-delay:-9s; animation-duration:11s"/>
+  <use class="fall" href="#maple" x="440" y="70"  fill="#e07a2e" style="animation-delay:-1.5s; animation-duration:13s"/>
+  <use class="fall" href="#maple" x="540" y="110" fill="#c2421a" style="animation-delay:-7.5s"/>
+  <use class="fall" href="#maple" x="630" y="60"  fill="#f0a040" style="animation-delay:-4.5s; animation-duration:15s"/>
+  <use class="fall" href="#maple" x="740" y="130" fill="#e07a2e" style="animation-delay:-10s"/>
+  <use class="fall" href="#maple" x="830" y="90"  fill="#ffc66d" style="animation-delay:-2.5s; animation-duration:12s"/>
+
+  <!-- Vom Wind gerollte Blaetter -->
+  <use class="roll" href="#maple" x="850" y="416" fill="#c2541a"/>
+  <use class="roll" href="#maple" x="850" y="420" fill="#f0a040" style="animation-delay:-5s; animation-duration:15s"/>
+  <use class="roll" href="#maple" x="850" y="414" fill="#e07a2e" style="animation-delay:-9s; animation-duration:12s"/>
+
+  <!-- Skills: Herbst-Ticket -->
+  <rect x="60" y="456" width="780" height="194" rx="10" fill="#1a100a" stroke="#8b5a3c" stroke-opacity=".7" stroke-width="2"/>
+  <circle cx="60"  cy="553" r="12" fill="#0d1117"/>
+  <circle cx="840" cy="553" r="12" fill="#0d1117"/>
+  <line x1="752" y1="512" x2="752" y2="640" stroke="#8b5a3c" stroke-opacity=".6" stroke-dasharray="3 4"/>
+
+  <use href="#maple" transform="translate(88,489) scale(1.1)" fill="#e07a2e"/>
+  <text class="head" x="102" y="494">AUTUMN.LOG // SKILLS</text>
+  <text class="meta" x="816" y="494">[ 23.09 ]</text>
   <line x1="80" y1="504" x2="816" y2="504" stroke="#8b5a3c" stroke-opacity=".5" stroke-dasharray="2 5"/>
 
   <text class="label" x="80" y="528">HTML</text>
@@ -386,17 +377,16 @@
   <text class="pct" x="805" y="603">40%</text>
   <text class="pct" x="805" y="628">55%</text>
 
-  <!-- Footer: Pixel-Eichel -->
+  <!-- Footer: Pixel-Ahornblatt -->
   <g stroke="#8b5a3c" stroke-opacity=".5" stroke-dasharray="2 6">
     <line x1="300" y1="684" x2="425" y2="684"/>
     <line x1="475" y1="684" x2="600" y2="684"/>
   </g>
   <g class="pixel">
-    <rect x="449" y="671" width="2"  height="3"  fill="#6e4128"/>
-    <rect x="442" y="674" width="16" height="5"  fill="#8b5a3c"/>
-    <rect x="444" y="679" width="12" height="8"  fill="#c2541a"/>
-    <rect x="446" y="687" width="8"  height="3"  fill="#c2541a"/>
-    <rect x="449" y="690" width="2"  height="2"  fill="#a3400f"/>
-    <rect x="445" y="680" width="3"  height="3"  fill="#f0a040"/>
+    <rect x="448" y="672" width="4"  height="4" fill="#ffc66d"/>
+    <rect x="444" y="676" width="12" height="4" fill="#f0a040"/>
+    <rect x="440" y="680" width="20" height="4" fill="#e07a2e"/>
+    <rect x="444" y="684" width="12" height="4" fill="#c2541a"/>
+    <rect x="449" y="688" width="2"  height="6" fill="#6e4128"/>
   </g>
 </svg>
