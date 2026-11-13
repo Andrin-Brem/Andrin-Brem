@@ -386,18 +386,18 @@
     <rect x="210" y="586" width="560" height="18" fill="#1a2433"/>
     <rect x="210" y="616" width="560" height="18" fill="#1a2433"/>
     <!-- width = 560 * Prozent -->
-    <rect class="bar" x="210" y="496" width="476" height="18" fill="url(#barFill)"/>
+    <rect class="bar" x="210" y="496" width="504" height="18" fill="url(#barFill)"/>
     <rect class="bar" x="210" y="526" width="448" height="18" fill="url(#barFill)" style="animation-delay:.15s"/>
-    <rect class="bar" x="210" y="556" width="336" height="18" fill="url(#barFill)" style="animation-delay:.3s"/>
+    <rect class="bar" x="210" y="556" width="392" height="18" fill="url(#barFill)" style="animation-delay:.3s"/>
     <rect class="bar" x="210" y="586" width="224" height="18" fill="url(#barFill)" style="animation-delay:.45s"/>
-    <rect class="bar" x="210" y="616" width="308" height="18" fill="url(#barFill)" style="animation-delay:.6s"/>
+    <rect class="bar" x="210" y="616" width="280" height="18" fill="url(#barFill)" style="animation-delay:.6s"/>
   </g>
 
-  <text class="pct" x="816" y="510">85%</text>
+  <text class="pct" x="816" y="510">90%</text>
   <text class="pct" x="816" y="540">80%</text>
-  <text class="pct" x="816" y="570">60%</text>
+  <text class="pct" x="816" y="570">70%</text>
   <text class="pct" x="816" y="600">40%</text>
-  <text class="pct" x="816" y="630">55%</text>
+  <text class="pct" x="816" y="630">50%</text>
 
   <!-- Footer: Pixel-Schneeflocke -->
   <g stroke="#38bdf8" stroke-opacity=".4" stroke-dasharray="2 6">
